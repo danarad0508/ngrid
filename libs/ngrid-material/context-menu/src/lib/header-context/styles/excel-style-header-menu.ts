@@ -1,5 +1,5 @@
 import { Component, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
-import { MatMenu } from '@angular/material/menu';
+import { MatLegacyMenu as MatMenu } from '@angular/material/legacy-menu';
 
 import { PblNgridComponent, PblColumn, PblNgridDataHeaderExtensionContext } from '@pebula/ngrid';
 import { PblNgridOverlayPanelRef } from '@pebula/ngrid/overlay-panel';

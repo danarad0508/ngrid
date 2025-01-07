@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatLegacyCheckboxModule as MatCheckboxModule } from '@angular/material/legacy-checkbox';
 
 import { PblNgridModule, ngridPlugin } from '@pebula/ngrid';
 import { PblNgridBsSelectionPlugin, PLUGIN_KEY } from './bs-selection-plugin.directive';

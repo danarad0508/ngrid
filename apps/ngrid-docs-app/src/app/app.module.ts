@@ -9,13 +9,13 @@ import { Angulartics2Module } from 'angulartics2';
 import { TransferHttpCacheModule } from '@nguniversal/common';
 import { BidiModule } from '@angular/cdk/bidi';
 import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatListModule } from '@angular/material/list';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatSelectModule } from '@angular/material/select';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
+import { MatLegacyMenuModule as MatMenuModule } from '@angular/material/legacy-menu';
+import { MatLegacyListModule as MatListModule } from '@angular/material/legacy-list';
+import { MatLegacyTooltipModule as MatTooltipModule } from '@angular/material/legacy-tooltip';
+import { MatLegacyFormFieldModule as MatFormFieldModule } from '@angular/material/legacy-form-field';
+import { MatLegacySelectModule as MatSelectModule } from '@angular/material/legacy-select';
+import { MatLegacySlideToggleModule as MatSlideToggleModule } from '@angular/material/legacy-slide-toggle';
 
 import {
   PblDocsAppSharedModule,
@@ -80,11 +80,10 @@ export const REQ_KEY = makeStateKey<string>('req');
         },
       ],
       {
-        useHash: false,
-        initialNavigation: 'enabledBlocking',
-        preloadingStrategy: LazyModulePreloader,
-        relativeLinkResolution: 'legacy',
-      }
+    useHash: false,
+    initialNavigation: 'enabledBlocking',
+    preloadingStrategy: LazyModulePreloader
+}
     ),
     Angulartics2Module.forRoot({
       developerMode: !environment.production,

@@ -8,7 +8,7 @@ import {
   OnDestroy,
 } from '@angular/core';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
-import { MatPaginatorIntl } from '@angular/material/paginator';
+import { MatLegacyPaginatorIntl as MatPaginatorIntl } from '@angular/material/legacy-paginator';
 
 import { deprecatedWarning, unrx } from '@pebula/ngrid/core';
 import { PblNgridComponent, PblPaginator, PblPaginatorChangeEvent } from '@pebula/ngrid';

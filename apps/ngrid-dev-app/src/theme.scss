@@ -2,16 +2,25 @@
 @use '../../../libs/ngrid' as ngrid;
 @use '../../../libs/ngrid-material' as ngrid-material;
 
-$typography-config: mat.define-typography-config();
+$typography-config: mat.define-legacy-typography-config();
 $ngrid-material-starter-primary: mat.define-palette(mat.$indigo-palette);
 $ngrid-material-starter-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 $ngrid-material-starter-warn: mat.define-palette(mat.$red-palette);
 $ngrid-material-starter-theme: mat.define-light-theme($ngrid-material-starter-primary, $ngrid-material-starter-accent, $ngrid-material-starter-warn);
 $ngrid-material-starter-theme: ngrid.define-light-theme($ngrid-material-starter-theme);
 
-@include mat.core($typography-config);
+// TODO(v15): As of v15 mat.legacy-core no longer includes default typography styles.
+//  The following line adds:
+//    1. Default typography styles for all components
+//    2. Styles for typography hierarchy classes (e.g. .mat-headline-1)
+//  If you specify typography styles for the components you use elsewhere, you should delete this line.
+//  If you don't need the default component typographies but still want the hierarchy styles,
+//  you can delete this line and instead use:
+//    `@include mat.legacy-typography-hierarchy($typography-config);`
+@include mat.all-legacy-component-typographies($typography-config);
+@include mat.legacy-core();
 @include ngrid.ngrid-typography($typography-config);
-@include mat.all-component-themes($ngrid-material-starter-theme);
+@include mat.all-legacy-component-themes($ngrid-material-starter-theme);
 @include ngrid-material.all-ngrid-material-theme($ngrid-material-starter-theme);
 
 html, body { height: 100%; }

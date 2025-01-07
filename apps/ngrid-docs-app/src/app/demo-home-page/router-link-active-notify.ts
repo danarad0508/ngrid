@@ -1,6 +1,6 @@
 import { Subscription, ReplaySubject } from 'rxjs';
 import { Directive, ContentChildren, Input, Output, OnChanges, OnDestroy, AfterContentInit, QueryList, SimpleChanges } from '@angular/core';
-import { RouterLinkWithHref, RouterLink, Router, NavigationEnd, RouterEvent } from '@angular/router';
+import { RouterLink, Router, NavigationEnd, RouterEvent } from '@angular/router';
 
 /**
  * Similar to `RouterLinkActive` from `@angular/router` but instead of updating a class o the dom will notify through an `@Output`.
@@ -13,15 +13,15 @@ import { RouterLinkWithHref, RouterLink, Router, NavigationEnd, RouterEvent } fr
 })
 export class RouterLinkActiveNotify implements OnChanges, OnDestroy, AfterContentInit {
   @ContentChildren(RouterLink, { descendants: true }) links: QueryList<RouterLink>;
-  @ContentChildren(RouterLinkWithHref, { descendants: true }) linksWithHrefs: QueryList<RouterLinkWithHref>;
+  @ContentChildren(RouterLink, { descendants: true }) linksWithHrefs: QueryList<RouterLink>;
   private subscription: Subscription;
   public readonly isActive: boolean = false;
 
   @Input() whichRouterLinkActive: { exact: boolean } = {exact: false};
 
-  @Output() routerLinkActiveNotify = new ReplaySubject<{ isActive: boolean; findRouterLink: (commands: any[]|string) => RouterLinkWithHref | RouterLink | undefined; }>(1);
+  @Output() routerLinkActiveNotify = new ReplaySubject<{ isActive: boolean; findRouterLink: (commands: any[]|string) => RouterLink | RouterLink | undefined; }>(1);
 
-  private activeLinks: Array<RouterLink | RouterLinkWithHref> = [];
+  private activeLinks: Array<RouterLink | RouterLink> = [];
 
   constructor(private router: Router) {
     this.subscription = router.events.subscribe((s: RouterEvent) => {
@@ -53,17 +53,17 @@ export class RouterLinkActiveNotify implements OnChanges, OnDestroy, AfterConten
     });
   }
 
-  private isLinkActive(router: Router): (link: (RouterLink | RouterLinkWithHref)) => boolean {
-    return (link: RouterLink | RouterLinkWithHref) =>
+  private isLinkActive(router: Router): (link: (RouterLink | RouterLink)) => boolean {
+    return (link: RouterLink | RouterLink) =>
                router.isActive(link.urlTree, this.whichRouterLinkActive.exact);
   }
 
-  private getActiveLinks(): Array<RouterLink | RouterLinkWithHref> {
+  private getActiveLinks(): Array<RouterLink | RouterLink> {
     const isActiveCheckFn = this.isLinkActive(this.router);
     return this.links.filter(isActiveCheckFn).concat(this.linksWithHrefs.filter(isActiveCheckFn) as any);
   }
 
-  private statusHasChanged(isActive: boolean, activeLinks: Array<RouterLink | RouterLinkWithHref>): boolean {
+  private statusHasChanged(isActive: boolean, activeLinks: Array<RouterLink | RouterLink>): boolean {
     if (this.isActive !== isActive) {
       return true;
     }
@@ -80,7 +80,7 @@ export class RouterLinkActiveNotify implements OnChanges, OnDestroy, AfterConten
     return false;
   }
 
-  private findRouterLink(commands: any[]|string): RouterLinkWithHref | RouterLink | undefined {
+  private findRouterLink(commands: any[]|string): RouterLink | RouterLink | undefined {
     if (this.isActive && this.activeLinks[0]) {
       const routerLinkWrapper: RouterLink = Object.create(this.activeLinks[0]);
       routerLinkWrapper.routerLink = commands;

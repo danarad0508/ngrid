@@ -1,6 +1,14 @@
+import { Tree } from '@angular-devkit/schematics';
 import { SchematicTestRunner, UnitTestTree } from '@angular-devkit/schematics/testing';
 
-export { getFileContent } from '@schematics/angular/utility/test';
+//export { getFileContent } from '@schematics/angular/utility/test';
+export function getFileContent(tree: Tree, path: string): string {
+  const file = tree.read(path);
+  if (!file) {
+    throw new Error(`File not found: ${path}`);
+  }
+  return file.toString('utf-8');
+}
 
 function createWorkspace(runner: SchematicTestRunner): Promise<UnitTestTree> {
   return runner

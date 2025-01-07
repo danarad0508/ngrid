@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PblNgridModule } from '@pebula/ngrid';
 import { PblNgridTargetEventsModule } from '@pebula/ngrid/target-events';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatLegacyProgressBarModule as MatProgressBarModule } from '@angular/material/legacy-progress-bar';
 import { PblNgridInfiniteScrollModule } from '@pebula/ngrid/infinite-scroll';
 
 import { BindNgModule } from '@pebula/apps/docs-app-lib';

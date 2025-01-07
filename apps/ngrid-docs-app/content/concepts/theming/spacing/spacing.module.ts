@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { MatRadioModule } from '@angular/material/radio';
+import { MatLegacyRadioModule as MatRadioModule } from '@angular/material/legacy-radio';
 import { PblNgridModule } from '@pebula/ngrid';
 import { PblNgridDragModule } from '@pebula/ngrid/drag/';
 

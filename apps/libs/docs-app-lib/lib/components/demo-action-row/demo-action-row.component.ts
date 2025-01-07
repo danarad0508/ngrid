@@ -1,6 +1,6 @@
 import { Component, EventEmitter, ViewEncapsulation, Input, ViewChild, TemplateRef, AfterViewInit, Output } from '@angular/core';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
-import { MatMenuTrigger } from '@angular/material/menu';
+import { MatLegacyMenuTrigger as MatMenuTrigger } from '@angular/material/legacy-menu';
 
 import { PblNgridComponent, AutoSizeToFitOptions } from '@pebula/ngrid';
 

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatSortModule, MatSortHeader } from '@angular/material/sort';
-import { MatButtonModule } from '@angular/material/button';
+import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
 
 import { PblNgridRegistryService, PblNgridModule, ngridPlugin } from '@pebula/ngrid';
 import { PblNgridMatSortDirective, PLUGIN_KEY } from './mat-sort.directive';

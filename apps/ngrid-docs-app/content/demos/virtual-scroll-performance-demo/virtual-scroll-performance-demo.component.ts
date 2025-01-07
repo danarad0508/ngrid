@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, ChangeDetectorRef, ViewEncapsulation, ViewChild } from '@angular/core';
-import { MatRadioChange } from '@angular/material/radio';
+import { MatLegacyRadioChange as MatRadioChange } from '@angular/material/legacy-radio';
 
 import { createDS, columnFactory, PblNgridComponent } from '@pebula/ngrid';
 

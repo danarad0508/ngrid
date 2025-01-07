@@ -1,10 +1,10 @@
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
-import { RouterLinkWithHref, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { Dir } from '@angular/cdk/bidi';
-import { MatMenu } from '@angular/material/menu';
-import { MatSelect } from '@angular/material/select';
+import { MatLegacyMenu as MatMenu } from '@angular/material/legacy-menu';
+import { MatLegacySelect as MatSelect } from '@angular/material/legacy-select';
 
 import { MarkdownPagesMenuService, LocationService, ViewLayoutObserver, SearchService, SearchResults } from '@pebula/apps/docs-app-lib';
 import type { PageAssetNavEntry } from '@pebula-internal/webpack-markdown-pages';
@@ -66,7 +66,7 @@ export class DemoHomePageComponent implements OnInit {
       });
   }
 
-  demoLinkStatusChanged(event: { isActive: boolean; findRouterLink: (commands: any[] | string) => RouterLinkWithHref | RouterLink | undefined; }) {
+  demoLinkStatusChanged(event: { isActive: boolean; findRouterLink: (commands: any[] | string) => RouterLink | RouterLink | undefined; }) {
     this.selectedDemoLink = null;
     if (event.isActive) {
       if (!this._demoLinks) {
@@ -79,7 +79,7 @@ export class DemoHomePageComponent implements OnInit {
 
   mobileTopMenuRouteActivated(select: MatSelect,
                               items: PageAssetNavEntry[],
-                              event: { isActive: boolean; findRouterLink: (commands: any[] | string) => RouterLinkWithHref | RouterLink | undefined; }) {
+                              event: { isActive: boolean; findRouterLink: (commands: any[] | string) => RouterLink | RouterLink | undefined; }) {
     if (event.isActive) {
       select.value = items.find( dl => !!event.findRouterLink(dl.path.split('/')) );
     } else if (this.selectedDemoLink) {

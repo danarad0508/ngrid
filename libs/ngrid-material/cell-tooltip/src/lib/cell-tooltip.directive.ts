@@ -15,7 +15,7 @@ import { Directionality } from '@angular/cdk/bidi';
 import { Overlay } from '@angular/cdk/overlay';
 import { ScrollDispatcher } from '@angular/cdk/scrolling';
 import { Platform} from '@angular/cdk/platform';
-import { TooltipPosition, MatTooltipDefaultOptions, MatTooltip, MAT_TOOLTIP_SCROLL_STRATEGY, MAT_TOOLTIP_DEFAULT_OPTIONS } from '@angular/material/tooltip';
+import { LegacyTooltipPosition as TooltipPosition, MatLegacyTooltipDefaultOptions as MatTooltipDefaultOptions, MatLegacyTooltip as MatTooltip, MAT_LEGACY_TOOLTIP_SCROLL_STRATEGY as MAT_TOOLTIP_SCROLL_STRATEGY, MAT_LEGACY_TOOLTIP_DEFAULT_OPTIONS as MAT_TOOLTIP_DEFAULT_OPTIONS } from '@angular/material/legacy-tooltip';
 
 import { unrx, PblNgridConfigService } from '@pebula/ngrid/core';
 import { PblNgridComponent, PblNgridPluginController } from '@pebula/ngrid';

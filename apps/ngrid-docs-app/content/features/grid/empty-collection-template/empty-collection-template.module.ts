@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatRadioModule } from '@angular/material/radio';
+import { MatLegacyRadioModule as MatRadioModule } from '@angular/material/legacy-radio';
 
 import { PblNgridModule } from '@pebula/ngrid';
 import { PblNgridBlockUiModule } from '@pebula/ngrid/block-ui';
