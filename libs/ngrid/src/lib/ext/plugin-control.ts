@@ -1,16 +1,15 @@
+import { Injector } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
 import { mapTo } from 'rxjs/operators';
-import { InjectFlags, Injector } from '@angular/core';
-
-import { PblNgridEvents, ON_INIT, PblNgridEventEmitter } from '@pebula/ngrid/core';
+import { ON_INIT, PblNgridEventEmitter, PblNgridEvents } from '@pebula/ngrid/core';
 import { _PblNgridComponent } from '../tokens';
+import { PblNgridExtensionApi } from './grid-ext-api';
+import { PLUGIN_STORE } from './grid-plugin';
 import {
   PblNgridPlugin,
   PblNgridPluginExtension,
   PblNgridPluginExtensionFactories,
 } from './types';
-import { PblNgridExtensionApi } from './grid-ext-api';
-import { PLUGIN_STORE } from './grid-plugin';
 
 const NGRID_PLUGIN_CONTEXT = new WeakMap<_PblNgridComponent, PblNgridPluginContext>();
 
@@ -163,7 +162,7 @@ export class PblNgridPluginController<T = any> {
    * we will use `hasAncestor(MyParentModule)`
    */
   hasAncestor(token: any) {
-    return !!this.injector.get(token, null, InjectFlags.Optional);
+    return !!this.injector.get(token, null, { optional: true });
   }
 
   createPlugin<P extends keyof PblNgridPluginExtensionFactories>(name: P): PblNgridPluginExtension[P];
