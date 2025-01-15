@@ -62,7 +62,7 @@
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
+      "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/ngrid-material"],
       "options": {
         "jestConfig": "libs/ngrid-material/jest.config.ts",

@@ -152,7 +152,7 @@ We need to refactor our code:
 
 ```typescript
 // id (PLUGIN_KEY) is unique and typed so we must augment it:
-declare module '@pebula/ngrid/lib/ext/types' {
+declare module '@pebula/ngrid/core' {
   interface PblNgridPluginExtension {
     clipboard?: PblNgridClipboardPlugin;
   }
@@ -215,7 +215,7 @@ To enforce uniqueness, the key is typed and can not be used if not present in th
 To add a new key to the type system we will use typescript's augmentation feature:
 
 ```typescript
-declare module '@pebula/ngrid/lib/ext/types' {
+declare module '@pebula/ngrid/core' {
   interface PblNgridPluginExtension {
     clipboard?: PblNgridClipboardPlugin;
   }

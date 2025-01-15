@@ -27,7 +27,8 @@
       "@pebula/ngrid-cypress/lib/*": ["libs/ngrid-cypress/src/lib/*"],
       "@pebula/ngrid-material/lib/*": ["libs/ngrid-material/src/lib/*"],
       "@pebula/ngrid/core/lib/*": ["libs/ngrid/core/src/lib/*"],
-      "@pebula/ngrid/lib/*": ["libs/ngrid/src/lib/*"]
+      "@pebula/ngrid/lib/*": ["libs/ngrid/src/lib/*"],
+      "@pebula/workspace-plugin": ["tools/workspace-plugin/src/index.ts"]
     }
   },
   "exclude": ["dist", "node_modules", "tmp"]

@@ -1,7 +1,7 @@
 import { defineConfig } from 'cypress';
 import { addMatchImageSnapshotPlugin } from '@simonsmith/cypress-image-snapshot/plugin';
 
-import { nxE2EPreset } from '@nrwl/cypress/plugins/cypress-preset';
+import { nxE2EPreset } from '@nx/cypress/plugins/cypress-preset';
 
 const cypressJsonConfig = {
   fileServerFolder: '.',
@@ -22,11 +22,11 @@ export default defineConfig({
       addMatchImageSnapshotPlugin(on, config);
     },
     /**
-    * TODO(@nrwl/cypress): In Cypress v12,the testIsolation option is turned on by default. 
-    * This can cause tests to start breaking where not indended.
-    * You should consider enabling this once you verify tests do not depend on each other
-    * More Info: https://docs.cypress.io/guides/references/migration-guide#Test-Isolation
-    **/
+     * TODO(@nx/cypress): In Cypress v12,the testIsolation option is turned on by default.
+     * This can cause tests to start breaking where not indended.
+     * You should consider enabling this once you verify tests do not depend on each other
+     * More Info: https://docs.cypress.io/guides/references/migration-guide#Test-Isolation
+     **/
     testIsolation: false,
- },
+  },
 });

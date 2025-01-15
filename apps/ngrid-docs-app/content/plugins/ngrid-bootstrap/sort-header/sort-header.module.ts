@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgbButtonsModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PblNgridModule } from '@pebula/ngrid';
 import { PblNgridBsSortableModule } from '@pebula/ngrid-bootstrap/sort';
 
@@ -17,7 +17,7 @@ import { ProgrammaticExample } from './programmatic.component';
     PblNgridDocsAppBootstrapStylesModule,
     CommonModule,
     ExampleCommonModule,
-    NgbButtonsModule,
+    NgbModule,
     PblNgridModule,
     PblNgridBsSortableModule,
   ],

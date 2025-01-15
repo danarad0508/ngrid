@@ -1,6 +1,6 @@
 import { Subscription, ReplaySubject } from 'rxjs';
 import { Directive, ContentChildren, Input, Output, OnChanges, OnDestroy, AfterContentInit, QueryList, SimpleChanges } from '@angular/core';
-import { RouterLink, Router, NavigationEnd, RouterEvent } from '@angular/router';
+import { RouterLink, Router, NavigationEnd, RouterEvent, Event } from '@angular/router';
 
 /**
  * Similar to `RouterLinkActive` from `@angular/router` but instead of updating a class o the dom will notify through an `@Output`.
@@ -24,7 +24,7 @@ export class RouterLinkActiveNotify implements OnChanges, OnDestroy, AfterConten
   private activeLinks: Array<RouterLink | RouterLink> = [];
 
   constructor(private router: Router) {
-    this.subscription = router.events.subscribe((s: RouterEvent) => {
+    this.subscription = router.events.subscribe((s: Event) => {
       if (s instanceof NavigationEnd) {
         this.update();
       }

@@ -39,3 +39,11 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+.angular
+
+.nx
+.nx/cache
+
+dev_docs/migrations
+venv

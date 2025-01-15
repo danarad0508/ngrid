@@ -3,11 +3,11 @@ describe('ngrid-docs-app', () => {
 
   it('should hide and show columns', () => {
     /**
-* TODO(@nrwl/cypress): Nesting Cypress commands in a should assertion now throws.
-* You should use .then() to chain commands instead.
-* More Info: https://docs.cypress.io/guides/references/migration-guide#-should
-**/
-cy.get('pbl-hide-columns-example-component > pbl-ngrid')
+     * TODO(@nx/cypress): Nesting Cypress commands in a should assertion now throws.
+     * You should use .then() to chain commands instead.
+     * More Info: https://docs.cypress.io/guides/references/migration-guide#-should
+     **/
+    cy.get('pbl-hide-columns-example-component > pbl-ngrid')
       .nGrid()
       .should((ngrid) => {
         expect(ngrid.getColumns()).to.deep.eq([
@@ -47,11 +47,11 @@ cy.get('pbl-hide-columns-example-component > pbl-ngrid')
 
   it('should hide and show group columns when child columns hide/show', () => {
     /**
-* TODO(@nrwl/cypress): Nesting Cypress commands in a should assertion now throws.
-* You should use .then() to chain commands instead.
-* More Info: https://docs.cypress.io/guides/references/migration-guide#-should
-**/
-cy.get('pbl-hide-columns-with-group-headers-example-component > pbl-ngrid')
+     * TODO(@nx/cypress): Nesting Cypress commands in a should assertion now throws.
+     * You should use .then() to chain commands instead.
+     * More Info: https://docs.cypress.io/guides/references/migration-guide#-should
+     **/
+    cy.get('pbl-hide-columns-with-group-headers-example-component > pbl-ngrid')
       .nGrid()
       .should((ngrid) => {
         expect(ngrid.getColumns()).to.deep.eq([

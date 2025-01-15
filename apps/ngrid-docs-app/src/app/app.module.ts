@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_ID, NgModule } from '@angular/core';
 import { BrowserModule, makeStateKey } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
@@ -49,7 +49,7 @@ export const REQ_KEY = makeStateKey<string>('req');
 @NgModule({
   declarations: [AppComponent, DemoHomePageComponent, RouterLinkActiveNotify],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserModule,
     TransferHttpCacheModule,
     HttpClientModule,
     BrowserAnimationsModule,
@@ -80,10 +80,10 @@ export const REQ_KEY = makeStateKey<string>('req');
         },
       ],
       {
-    useHash: false,
-    initialNavigation: 'enabledBlocking',
-    preloadingStrategy: LazyModulePreloader
-}
+        useHash: false,
+        initialNavigation: 'enabledBlocking',
+        preloadingStrategy: LazyModulePreloader
+      }
     ),
     Angulartics2Module.forRoot({
       developerMode: !environment.production,
@@ -93,6 +93,7 @@ export const REQ_KEY = makeStateKey<string>('req');
     }),
   ],
   providers: [
+    { provide: APP_ID, useValue: 'serverApp' },
     { provide: CONTENT_CHUNKS_COMPONENTS, useValue: APP_CONTENT_CHUNKS },
     {
       provide: EXAMPLE_COMPONENTS_TOKEN,

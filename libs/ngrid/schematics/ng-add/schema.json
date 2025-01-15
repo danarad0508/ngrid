@@ -1,4 +1,3 @@
-
 {
   "$schema": "http://json-schema.org/schema",
   "$id": "ngrid-ng-add",
@@ -20,9 +19,18 @@
         "message": "Choose",
         "type": "list",
         "items": [
-          { "value": "none",       "label": "None" },
-          { "value": "material",   "label": "Material (@pebula/ngrid-material using @angular/components" },
-          { "value": "bootstrap",  "label": "Bootstrap (@pebula/ngrid-bootstrap using @ng-bootstrap/ng-bootstrap" }
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "material",
+            "label": "Material (@pebula/ngrid-material using @angular/components"
+          },
+          {
+            "value": "bootstrap",
+            "label": "Bootstrap (@pebula/ngrid-bootstrap using @ng-bootstrap/ng-bootstrap"
+          }
         ]
       }
     },
@@ -34,9 +42,18 @@
         "message": "Choose a prebuilt theme name, or \"custom\" for a custom theme:",
         "type": "list",
         "items": [
-          { "value": "light",       "label": "Light Theme" },
-          { "value": "dark",        "label": "Dark Theme" },
-          { "value": "custom",      "label": "Custom" }
+          {
+            "value": "light",
+            "label": "Light Theme"
+          },
+          {
+            "value": "dark",
+            "label": "Dark Theme"
+          },
+          {
+            "value": "custom",
+            "label": "Custom"
+          }
         ]
       }
     }
