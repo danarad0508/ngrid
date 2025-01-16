@@ -19,7 +19,7 @@ import { unrx, PblNgridConfigService } from '@pebula/ngrid/core';
 import { PblNgridComponent, PblNgridPluginController } from '@pebula/ngrid';
 import { PblNgridCellEvent } from '@pebula/ngrid/target-events';
 
-declare module '@pebula/ngrid/core/lib/configuration/type' {
+declare module '@pebula/ngrid/core' {
   interface PblNgridConfig {
     bsCellTooltip?: CellTooltipOptions & {
       /** When set to true will apply the default cell tooltip to ALL tables */
@@ -28,7 +28,7 @@ declare module '@pebula/ngrid/core/lib/configuration/type' {
   }
 }
 
-declare module '@pebula/ngrid/lib/ext/types' {
+declare module '@pebula/ngrid' {
   interface PblNgridPluginExtension {
     bsCellTooltip?: PblNgridCellTooltipDirective<any>;
   }

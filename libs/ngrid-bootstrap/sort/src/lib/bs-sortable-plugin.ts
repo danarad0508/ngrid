@@ -7,7 +7,7 @@ import { PblNgridSortable, PblNgridBsSortDirection, PblNgridBsSortState } from '
 import { getSortDuplicateSortableIdError, getSortHeaderMissingIdError, getSortInvalidDirectionError } from './sort-errors';
 import { PblNgridBsSortable } from './bs-sortable/bs-sortable.component';
 
-declare module '@pebula/ngrid/lib/ext/types' {
+declare module '@pebula/ngrid' {
   interface PblNgridPluginExtension {
     bsSortable?: PblNgridBsSortablePlugin;
   }

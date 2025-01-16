@@ -4,7 +4,7 @@
 
 // import { PblPaginatorComponent } from './table-paginator.component';
 
-// declare module '@pebula/ngrid/lib/ext/types' {
+// declare module '@pebula/ngrid' {
 //   interface PblNgridPluginExtension {
 //     matPaginator?: PblNgridMatPaginatorDirective;
 //   }

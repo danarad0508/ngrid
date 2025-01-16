@@ -4,7 +4,7 @@ import { PblNgridComponent, PblNgridPluginController } from '@pebula/ngrid';
 
 import { PblNgridBsSelectionComponent } from './bs-selection.component';
 
-declare module '@pebula/ngrid/lib/ext/types' {
+declare module '@pebula/ngrid' {
   interface PblNgridPluginExtension {
     bsSelectionColumn?: PblNgridBsSelectionPlugin;
   }

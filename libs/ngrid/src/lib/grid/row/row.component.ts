@@ -30,7 +30,7 @@ export const PBL_NGRID_ROW_TEMPLATE = '<ng-content select=".pbl-ngrid-row-prefix
 })
 export class PblNgridRowComponent<T = any> extends PblNgridBaseRowComponent<'data', T> implements OnInit, OnDestroy {
 
-  @ViewChild('viewRef', { read: ViewContainerRef, static: true }) _viewRef: ViewContainerRef;
+  @ViewChild('viewRef', { read: ViewContainerRef, static: true }) declare _viewRef: ViewContainerRef;
 
   readonly rowType = 'data' as const;
 

@@ -8,7 +8,7 @@ export interface NgridPluginMetadata<P extends keyof PblNgridPluginExtension = k
   id: P;
   factory?: P extends keyof PblNgridPluginExtensionFactories
     ? PblNgridPluginExtensionFactories[P]
-    : never
+    : (never | string)
   ;
   runOnce?: () => void;
 }

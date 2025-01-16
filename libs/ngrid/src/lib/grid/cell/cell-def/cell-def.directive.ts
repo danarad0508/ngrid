@@ -28,7 +28,7 @@ import { PblNgridBaseCellDef } from './base-cell-def.directive';
   ]
 })
 export class PblNgridCellDefDirective<T, P extends keyof PblColumnTypeDefinitionDataMap = any> extends PblNgridBaseCellDef<PblNgridCellContext<T, P>> {
-  type: P;
+  declare type: P;
   constructor(tRef: TemplateRef<PblNgridCellContext<any, P>>, registry: PblNgridRegistryService) { super(tRef, registry); }
 
   ngOnInit(): void {
@@ -41,7 +41,7 @@ export class PblNgridCellDefDirective<T, P extends keyof PblColumnTypeDefinition
   }
 }
 
-declare module '@pebula/ngrid/core/lib/registry/types' {
+declare module '@pebula/ngrid/core' {
   interface PblNgridMultiRegistryMap {
     tableCell?: PblNgridCellDefDirective<any>;
   }

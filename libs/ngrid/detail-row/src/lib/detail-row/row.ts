@@ -11,11 +11,11 @@ import { ENTER, SPACE } from '@angular/cdk/keycodes';
 import { CdkRow } from '@angular/cdk/table';
 
 import { unrx } from '@pebula/ngrid/core';
-import { PblNgridRowComponent } from '@pebula/ngrid';
+import { ExternalRowContextState, PblNgridRowComponent, PblNgridRowContext, PblRowContext } from '@pebula/ngrid';
 import { PblDetailsRowToggleEvent, PLUGIN_KEY } from './tokens';
 import { DetailRowController } from './detail-row-controller';
 
-declare module '@pebula/ngrid/lib/grid/context/types' {
+declare module '@pebula/ngrid' {
   interface ExternalRowContextState {
     detailRow: boolean;
   }
@@ -33,7 +33,7 @@ export const PBL_NGRID_ROW_TEMPLATE = '<ng-content select=".pbl-ngrid-row-prefix
     '(keydown)': 'handleKeydown($event)'
   },
   template: PBL_NGRID_ROW_TEMPLATE,
-  styles: [ `.pbl-row-detail-parent { position: relative; cursor: pointer; }` ],
+  styles: [`.pbl-row-detail-parent { position: relative; cursor: pointer; }`],
   providers: [
     { provide: CdkRow, useExisting: PblNgridDetailRowComponent }
   ],
@@ -41,6 +41,8 @@ export const PBL_NGRID_ROW_TEMPLATE = '<ng-content select=".pbl-ngrid-row-prefix
   encapsulation: ViewEncapsulation.None,
 })
 export class PblNgridDetailRowComponent extends PblNgridRowComponent implements OnInit, OnDestroy, PblDetailsRowToggleEvent {
+
+  declare context: PblNgridRowContext<any> & { getExternal: (key: 'detailRow') => boolean, setExternal: (key: 'detailRow', value: ExternalRowContextState['detailRow'], saveState: boolean) => void } & PblRowContext<any>;
 
   get expended(): boolean {
     return this.opened;
@@ -55,7 +57,7 @@ export class PblNgridDetailRowComponent extends PblNgridRowComponent implements 
   // We must explicitly define the inherited properties which have angular annotations
   // Because angular will not detect them when building this library.
   // TODO: When moving up to IVY see if this one get fixed
-  @ViewChild('viewRef', { read: ViewContainerRef, static: true }) _viewRef: ViewContainerRef;
+  @ViewChild('viewRef', { read: ViewContainerRef, static: true }) declare _viewRef: ViewContainerRef;
 
   private opened = false;
   private plugin: import('./detail-row-plugin').PblNgridDetailRowPluginDirective<any>;
@@ -68,10 +70,10 @@ export class PblNgridDetailRowComponent extends PblNgridRowComponent implements 
 
     tradeEvents.cellClick
       .pipe(unrx(this))
-      .subscribe( event => {
+      .subscribe(event => {
         if (event.type === 'data' && event.row === this.context.$implicit) {
           const { excludeToggleFrom } = this.plugin;
-          if (!excludeToggleFrom || !excludeToggleFrom.some( c => event.column.id === c )) {
+          if (!excludeToggleFrom || !excludeToggleFrom.some(c => event.column.id === c)) {
             this.toggle();
           }
         }
@@ -79,7 +81,7 @@ export class PblNgridDetailRowComponent extends PblNgridRowComponent implements 
 
     tradeEvents.rowClick
       .pipe(unrx(this))
-      .subscribe( event => {
+      .subscribe(event => {
         if (!event.root && event.type === 'data' && event.row === this.context.$implicit) {
           this.toggle();
         }
@@ -101,7 +103,7 @@ export class PblNgridDetailRowComponent extends PblNgridRowComponent implements 
           isContextOpened && this.opened
             ? this.controller.updateDetailRow(this) // if already opened, just update the context
             : this.toggle(isContextOpened, true) // if not opened, force to the context state
-          ;
+            ;
           break;
         case 'render':
           if (this.opened) {
@@ -143,10 +145,10 @@ export class PblNgridDetailRowComponent extends PblNgridRowComponent implements 
    * @internal
    */
   handleKeydown(event: KeyboardEvent): void {
-    if ( event.target === this.element ) {
+    if (event.target === this.element) {
       const keyCode = event.keyCode;
       const isToggleKey = keyCode === ENTER || keyCode === SPACE;
-      if ( isToggleKey ) {
+      if (isToggleKey) {
         event.preventDefault(); // prevents the page from scrolling down when pressing space
         this.toggle();
       }

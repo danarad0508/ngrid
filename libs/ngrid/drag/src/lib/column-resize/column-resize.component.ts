@@ -21,7 +21,7 @@ import { DragDropConfig, DragDropRegistry, CDK_DRAG_CONFIG } from '@angular/cdk/
 import { PblNgridComponent, PblColumn, PblNgridMetaCellContext, isPblColumn, PblNgridPluginController, PblNgridExtensionApi } from '@pebula/ngrid';
 import { toggleNativeDragInteractions } from './cdk-encapsulated-code';
 
-declare module '@pebula/ngrid/lib/ext/types' {
+declare module '@pebula/ngrid' {
   interface PblNgridPluginExtension {
     columnResize?: PblNgridDragResizeComponent;
   }
