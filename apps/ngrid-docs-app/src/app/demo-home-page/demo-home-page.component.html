@@ -32,7 +32,7 @@
     <ng-container *ngIf="viewLayout.isMobile$ | async">
       <div style="flex:1 0 auto"></div>
       <mat-slide-toggle [checked]="isRtl" (toggleChange)="rtlToggleChanged()">RTL</mat-slide-toggle>
-      <mat-form-field *ngIf="topMenuItems | async as menuItems" class="mobile-top-menu" appearance="legacy">
+      <mat-form-field *ngIf="topMenuItems | async as menuItems" class="mobile-top-menu" appearance="fill">
         <mat-select #select (routerLinkActiveNotify)="mobileTopMenuRouteActivated(select, menuItems, $event)"
                     placeholder="Select Topic">
           <mat-select-trigger style="color: white;">

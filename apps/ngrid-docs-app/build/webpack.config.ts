@@ -1,14 +1,14 @@
 import * as Path from 'path';
-import { Compiler, DefinePlugin, WebpackOptionsNormalized } from 'webpack';
 import * as simplegit from 'simple-git/promise';
+import { Compiler, DefinePlugin, WebpackOptionsNormalized } from 'webpack';
 
+import { AngularWebpackPlugin } from '@ngtools/webpack';
 import { PebulaDynamicDictionaryWebpackPlugin } from '@pebula-internal/webpack-dynamic-dictionary';
-import { PebulaNoCleanIfAnyWebpackPlugin } from '@pebula-internal/webpack-no-clean-if-any';
-import { MarkdownPagesWebpackPlugin } from '@pebula-internal/webpack-markdown-pages';
-import { SsrAndSeoWebpackPlugin } from '@pebula-internal/webpack-ssr-and-seo';
 import { MarkdownAppSearchWebpackPlugin } from '@pebula-internal/webpack-markdown-app-search';
 import { MarkdownCodeExamplesWebpackPlugin } from '@pebula-internal/webpack-markdown-code-examples';
-import type { AngularWebpackPlugin as _AngularWebpackPlugin } from '@ngtools/webpack';
+import { MarkdownPagesWebpackPlugin } from '@pebula-internal/webpack-markdown-pages';
+import { PebulaNoCleanIfAnyWebpackPlugin } from '@pebula-internal/webpack-no-clean-if-any';
+import { SsrAndSeoWebpackPlugin } from '@pebula-internal/webpack-ssr-and-seo';
 import * as remarkPlugins from './remark';
 
 const appRoot = Path.resolve(__dirname, "..");
@@ -38,9 +38,8 @@ function updateWebpackConfig(webpackConfig: WebpackOptionsNormalized): WebpackOp
   applyLoaders(webpackConfig);
 
   // push the new plugin AFTER the angular compiler plugin
-  const AngularWebpackPlugin: typeof _AngularWebpackPlugin = require('@ngtools/webpack').AngularWebpackPlugin;
 
-  var angularPlugins = webpackConfig.plugins.filter((p) => p instanceof AngularWebpackPlugin) as _AngularWebpackPlugin[];
+  const angularPlugins = webpackConfig.plugins.filter((p) => p instanceof AngularWebpackPlugin) as AngularWebpackPlugin[];
   if (angularPlugins.length == 0) {
     throw new Error(
       'Invalid webpack configuration, could not find "AngularCompilerPlugin" or "AngularWebpackPlugin" in the plugins registered'

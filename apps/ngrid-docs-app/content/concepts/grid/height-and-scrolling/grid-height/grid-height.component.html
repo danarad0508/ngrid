@@ -1,5 +1,5 @@
 <div fxLayout="row" fxLayoutGap="16px" style="width: 100%; padding: 16px">
-  <mat-form-field appearance="legacy">
+  <mat-form-field appearance="fill">
     <mat-label>Set Explicit Grid Height</mat-label>
     <mat-select [value]="explicitGridHeight" (selectionChange)="explicitGridHeight = $event.value">
       <mat-option value="300">300 Pixels</mat-option>
@@ -8,7 +8,7 @@
       <mat-option value="">None</mat-option>
     </mat-select>
   </mat-form-field>
-  <mat-form-field appearance="legacy">
+  <mat-form-field appearance="fill">
     <mat-label>Set minDataViewHeight</mat-label>
     <mat-select [value]="minDataViewHeight" (selectionChange)="minDataViewHeight = $event.value">
       <mat-option value="150">150 Pixels</mat-option>

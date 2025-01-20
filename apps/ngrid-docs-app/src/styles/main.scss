@@ -10,8 +10,8 @@
 $typography-config: default-theme.shell-typography-config();
 $pbl-shell-theme: default-theme.shell-light-theme(mat.$blue-palette, mat.$light-green-palette);
 
-@include mat.core($typography-config);
-
+@include mat.core();
+@include mat.typography-hierarchy($typography-config);
 @include ngrid.ngrid-typography($typography-config);
 
 // Include the default theme styles.
