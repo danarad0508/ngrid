@@ -4,12 +4,6 @@
   "affected": {
     "defaultBase": "master"
   },
-  "implicitDependencies": {
-    "angular.json": "*",
-    "package.json": "*",
-    "nx.json": "*",
-    "tsconfig.base.json": "*"
-  },
   "tasksRunnerOptions": {
     "default": {
       "runner": "nx/tasks-runners/default",
@@ -32,6 +26,9 @@
     },
     "lint": {
       "inputs": ["default", "{workspaceRoot}/.eslintrc.json"]
+    },
+    "testJest": {
+      "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"]
     }
   },
   "namedInputs": {
@@ -41,9 +38,15 @@
       "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
       "!{projectRoot}/tsconfig.spec.json",
       "!{projectRoot}/jest.config.[jt]s",
-      "!{projectRoot}/.eslintrc.json"
+      "!{projectRoot}/.eslintrc.json",
+      "!{projectRoot}/**/*.spec.[jt]s",
+      "!{projectRoot}/karma.conf.js"
     ],
-    "sharedGlobals": []
+    "sharedGlobals": [
+      "{workspaceRoot}/angular.json",
+      "{workspaceRoot}/nx.json",
+      "{workspaceRoot}/tsconfig.base.json"
+    ]
   },
   "cli": {
     "warnings": {

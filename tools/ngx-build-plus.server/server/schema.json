@@ -1,4 +1,6 @@
 {
+  "version": 2,
+  "outputCapture": "direct-nodejs",
   "$schema": "http://json-schema.org/schema",
   "$id": "BuildAngularWebpackServerSchema",
   "title": "Universal Target",
@@ -9,14 +11,11 @@
       "description": "es module exporting a configHook function (default export).",
       "default": ""
     },
-    
     "plugin": {
       "type": "string",
       "description": "es module exporting a Plugin object (default export). Just used for ng build; not for ng serve",
       "default": ""
     },
-    
-    
     "bundleStyles": {
       "type": "boolean",
       "description": "Used conjunction with 'singleBundle' to explizitly not bundle styles",
@@ -178,12 +177,7 @@
       "type": "string",
       "description": "Define the output filename cache-busting hashing mode.",
       "default": "none",
-      "enum": [
-        "none",
-        "all",
-        "media",
-        "bundles"
-      ]
+      "enum": ["none", "all", "media", "bundles"]
     },
     "deleteOutputPath": {
       "type": "boolean",
@@ -214,10 +208,7 @@
       "type": "string",
       "description": "Available on server platform only. Which external dependencies to bundle into the module. By default, all of node_modules will be kept as requires.",
       "default": "none",
-      "enum": [
-        "none",
-        "all"
-      ]
+      "enum": ["none", "all"]
     },
     "statsJson": {
       "type": "boolean",
@@ -248,11 +239,7 @@
     }
   },
   "additionalProperties": false,
-  "required": [
-    "outputPath",
-    "main",
-    "tsConfig"
-  ],
+  "required": ["outputPath", "main", "tsConfig"],
   "definitions": {
     "fileReplacement": {
       "oneOf": [
@@ -267,10 +254,7 @@
             }
           },
           "additionalProperties": false,
-          "required": [
-            "src",
-            "replaceWith"
-          ]
+          "required": ["src", "replaceWith"]
         },
         {
           "type": "object",
@@ -283,10 +267,7 @@
             }
           },
           "additionalProperties": false,
-          "required": [
-            "replace",
-            "with"
-          ]
+          "required": ["replace", "with"]
         }
       ]
     }

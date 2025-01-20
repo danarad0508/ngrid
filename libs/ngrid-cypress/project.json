@@ -1,10 +1,6 @@
 {
   "name": "ngrid-cypress",
-  "tags": [
-    "name:material",
-    "type:lib",
-    "parent:ngrid"
-  ],
+  "tags": ["name:material", "type:lib", "parent:ngrid"],
   "sourceRoot": "libs/ngrid-cypress/src",
   "projectType": "library",
   "targets": {
