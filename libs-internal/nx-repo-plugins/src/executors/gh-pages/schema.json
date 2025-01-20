@@ -2,7 +2,6 @@
   "version": 2,
   "outputCapture": "direct-nodejs",
   "$schema": "http://json-schema.org/schema",
-  "cli": "nx",
   "title": "GhPages executor",
   "description": "",
   "type": "object",
@@ -80,7 +79,10 @@
             }
           },
           "additionalProperties": false,
-          "required": ["glob", "output"]
+          "required": [
+            "glob",
+            "output"
+          ]
         },
         {
           "type": "string"

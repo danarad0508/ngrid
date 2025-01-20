@@ -8,11 +8,11 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "es2015",
+    "target": "es2022",
     "module": "esnext",
     "typeRoots": ["node_modules/@types", "libs-internal/local-types"],
     "types": ["dev-mode-types"],
-    "lib": ["es2017", "dom"],
+    "lib": ["es2022", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
@@ -27,7 +27,8 @@
       "@pebula/ngrid-cypress/lib/*": ["libs/ngrid-cypress/src/lib/*"],
       "@pebula/ngrid-material/lib/*": ["libs/ngrid-material/src/lib/*"],
       "@pebula/ngrid/core/lib/*": ["libs/ngrid/core/src/lib/*"],
-      "@pebula/ngrid/lib/*": ["libs/ngrid/src/lib/*"]
+      "@pebula/ngrid/lib/*": ["libs/ngrid/src/lib/*"],
+      "@pebula/workspace-plugin": ["tools/workspace-plugin/src/index.ts"]
     }
   },
   "exclude": ["dist", "node_modules", "tmp"]

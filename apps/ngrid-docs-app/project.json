@@ -129,7 +129,7 @@
       "outputs": ["{workspaceRoot}/coverage/apps/ngrid-docs-app/"]
     },
     "testJest": {
-      "executor": "@nrwl/jest:jest",
+      "executor": "@nx/jest:jest",
       "options": {
         "jestConfig": "apps/ngrid-docs-app/jest.config.ts",
         "passWithNoTests": true

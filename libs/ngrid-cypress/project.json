@@ -1,5 +1,6 @@
 {
   "name": "ngrid-cypress",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "tags": ["name:material", "type:lib", "parent:ngrid"],
   "sourceRoot": "libs/ngrid-cypress/src",
   "projectType": "library",

@@ -4,22 +4,14 @@ import 'zone.js/testing';
 import { getTestBed } from '@angular/core/testing';
 import {
   BrowserDynamicTestingModule,
-  platformBrowserDynamicTesting
+  platformBrowserDynamicTesting,
 } from '@angular/platform-browser-dynamic/testing';
 
-declare const require: any;
-
 // First, initialize the Angular testing environment.
-getTestBed().initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting(), {
-    teardown: { destroyAfterEach: false }
-});
-
-// Then we find all the tests.
-const context = require.context('../', true, /\.spec\.ts$/);
-// And load the modules.
-context.keys().map(context);
-
-// We also have test in the `content` direction, which is all the examples, most tests actually :)
-const contentContext = require.context('../../content', true, /\.spec\.ts$/);
-// And load the modules.
-contentContext.keys().map(contentContext);
+getTestBed().initTestEnvironment(
+  BrowserDynamicTestingModule,
+  platformBrowserDynamicTesting(),
+  {
+    teardown: { destroyAfterEach: false },
+  }
+);

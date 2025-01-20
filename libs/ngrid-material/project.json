@@ -1,5 +1,6 @@
 {
   "name": "ngrid-material",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "tags": ["name:material", "type:lib", "parent:ngrid"],
   "sourceRoot": "libs/ngrid-material/src",
   "projectType": "library",
@@ -61,7 +62,7 @@
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
+      "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/ngrid-material"],
       "options": {
         "jestConfig": "libs/ngrid-material/jest.config.ts",

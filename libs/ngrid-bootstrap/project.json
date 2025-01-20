@@ -1,5 +1,6 @@
 {
   "name": "ngrid-bootstrap",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "tags": ["name:bootstrap", "type:lib", "parent:ngrid"],
   "sourceRoot": "libs/ngrid-bootstrap/src",
   "projectType": "library",
@@ -61,7 +62,7 @@
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
+      "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/ngrid-bootstrap"],
       "options": {
         "jestConfig": "libs/ngrid-bootstrap/jest.config.ts",

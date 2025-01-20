@@ -1,0 +1,14 @@
+{
+  "generators": {
+    "create-dev-app-module": {
+      "implementation": "./src/generators/create-dev-app-module",
+      "schema": "./src/generators/create-dev-app-module/schema.json",
+      "description": "Generator create-dev-app-module"
+    },
+    "create-docs-app-module": {
+      "implementation": "./src/generators/create-docs-app-module",
+      "schema": "./src/generators/create-docs-app-module/schema.json",
+      "description": "Generator create-docs-app-module"
+    }
+  }
+}

@@ -17,5 +17,7 @@
       "description": "Add components to an existing module with example. (comma delimiter supported)"
     }
   },
-  "required": ["name"]
+  "required": [
+    "name"
+  ]
 }
