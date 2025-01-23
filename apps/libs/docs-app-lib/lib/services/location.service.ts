@@ -10,7 +10,7 @@ import { map, tap } from 'rxjs/operators';
 @Injectable()
 export class LocationService {
 
-  private readonly urlParser = this.document.createElement('a');
+  private readonly urlParser: HTMLAnchorElement;
   private urlSubject = new ReplaySubject<string>(1);
   private swUpdateActivated = false;
 
@@ -25,7 +25,7 @@ export class LocationService {
               private location: Location,
               private platformLocation: PlatformLocation,
               private router: Router) {
-
+    this.urlParser = this.document.createElement('a');
     this.urlSubject.next(location.path(true));
 
     this.location.subscribe(state => {

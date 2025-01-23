@@ -1,17 +1,16 @@
+import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 import {
-  ChangeDetectorRef,
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   Input,
+  OnDestroy,
   Optional,
   ViewEncapsulation,
-  OnDestroy,
 } from '@angular/core';
-import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
-import { MatLegacyPaginatorIntl as MatPaginatorIntl } from '@angular/material/legacy-paginator';
-
-import { deprecatedWarning, unrx } from '@pebula/ngrid/core';
+import { MatPaginatorIntl } from '@angular/material/paginator';
 import { PblNgridComponent, PblPaginator, PblPaginatorChangeEvent } from '@pebula/ngrid';
+import { deprecatedWarning, unrx } from '@pebula/ngrid/core';
 
 const DEFAULT_PAGE_SIZE_OPTIONS = [5, 10, 20, 50, 100];
 

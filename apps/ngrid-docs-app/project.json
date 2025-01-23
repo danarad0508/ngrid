@@ -7,10 +7,9 @@
   "prefix": "pbl",
   "targets": {
     "build": {
-      "executor": "ngx-build-plus:build",
+      "executor": "@nrwl/angular:webpack-browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "plugin": "~apps/ngrid-docs-app/build",
         "outputPath": "dist/browser",
         "index": "apps/ngrid-docs-app/src/index.html",
         "main": "apps/ngrid-docs-app/src/main.ts",
@@ -67,23 +66,16 @@
       "defaultConfiguration": "production"
     },
     "serve": {
-      "executor": "ngx-build-plus:dev-server",
+      "executor": "@nrwl/angular:webpack-dev-server",
       "options": {
-        "port": 4201,
-        "plugin": "~apps/ngrid-docs-app/build"
+        "port": 4201
       },
       "configurations": {
         "development": {
           "browserTarget": "ngrid-docs-app:build:development"
         },
-        "development-dist": {
-          "browserTarget": "ngrid-docs-app:build:development,_useDist"
-        },
         "production": {
           "browserTarget": "ngrid-docs-app:build:production"
-        },
-        "production-dist": {
-          "browserTarget": "ngrid-docs-app:build:production,_useDist"
         }
       },
       "defaultConfiguration": "development"

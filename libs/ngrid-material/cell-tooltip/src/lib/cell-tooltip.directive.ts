@@ -1,24 +1,22 @@
+import { AriaDescriber, FocusMonitor } from '@angular/cdk/a11y';
+import { Directionality } from '@angular/cdk/bidi';
+import { BooleanInput, coerceBooleanProperty, NumberInput } from '@angular/cdk/coercion';
+import { Overlay } from '@angular/cdk/overlay';
+import { Platform } from '@angular/cdk/platform';
+import { ScrollDispatcher } from '@angular/cdk/scrolling';
+import { DOCUMENT } from '@angular/common';
 import {
   Directive,
   ElementRef,
   Injector,
-  OnDestroy,
   Input,
   NgZone,
+  OnDestroy,
   ViewContainerRef,
 } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
-
-import { BooleanInput, coerceBooleanProperty, NumberInput } from '@angular/cdk/coercion';
-import { AriaDescriber, FocusMonitor } from '@angular/cdk/a11y';
-import { Directionality } from '@angular/cdk/bidi';
-import { Overlay } from '@angular/cdk/overlay';
-import { ScrollDispatcher } from '@angular/cdk/scrolling';
-import { Platform} from '@angular/cdk/platform';
-import { LegacyTooltipPosition as TooltipPosition, MatLegacyTooltipDefaultOptions as MatTooltipDefaultOptions, MatLegacyTooltip as MatTooltip, MAT_LEGACY_TOOLTIP_SCROLL_STRATEGY as MAT_TOOLTIP_SCROLL_STRATEGY, MAT_LEGACY_TOOLTIP_DEFAULT_OPTIONS as MAT_TOOLTIP_DEFAULT_OPTIONS } from '@angular/material/legacy-tooltip';
-
-import { unrx, PblNgridConfigService } from '@pebula/ngrid/core';
+import { MAT_TOOLTIP_DEFAULT_OPTIONS, MAT_TOOLTIP_SCROLL_STRATEGY, MatTooltip, MatTooltipDefaultOptions, TooltipPosition } from '@angular/material/tooltip';
 import { PblNgridComponent, PblNgridPluginController } from '@pebula/ngrid';
+import { PblNgridConfigService, unrx } from '@pebula/ngrid/core';
 import { PblNgridCellEvent } from '@pebula/ngrid/target-events';
 
 declare module '@pebula/ngrid/core' {

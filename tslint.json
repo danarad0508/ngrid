@@ -1,8 +1,6 @@
 {
   "rulesDirectory": [
-    "node_modules/@nx/workspace/src/tslint",
-    "node_modules/codelyzer"
-  ],
+    "node_modules/@nx/workspace/src/tslint"  ],
   "rules": {
     "arrow-return-shorthand": true,
     "callable-types": true,

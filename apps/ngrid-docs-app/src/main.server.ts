@@ -1,6 +1,5 @@
 import { enableProdMode } from '@angular/core';
 import '@angular/localize/init'; // ng-bootstrap
-
 import { environment } from './environments/environment';
 
 if (environment.production) {
@@ -9,4 +8,3 @@ if (environment.production) {
 
 export { AppServerModule } from './app/app.server.module';
 export { ngExpressEngine } from '@nguniversal/express-engine';
-export { renderModuleFactory } from '@angular/platform-server';

@@ -1,14 +1,11 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { MatLegacyProgressSpinnerModule as MatProgressSpinnerModule } from '@angular/material/legacy-progress-spinner';
+import { NgModule } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-
-import { PblNgridModule } from '@pebula/ngrid';
-import { PblNgridDragModule } from '@pebula/ngrid/drag';
-import { PblNgridBlockUiModule } from '@pebula/ngrid/block-ui';
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ExampleCommonModule } from '@pebula/apps/docs-app-lib/example-common.module';
+import { PblNgridModule } from '@pebula/ngrid';
+import { PblNgridBlockUiModule } from '@pebula/ngrid/block-ui';
+import { PblNgridDragModule } from '@pebula/ngrid/drag';
 import { CommonGridTemplatesComponent } from './common-grid-templates.component';
 
 @NgModule({

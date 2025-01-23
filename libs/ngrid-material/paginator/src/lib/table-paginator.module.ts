@@ -1,10 +1,9 @@
-import { NgModule, Injector, createComponent, EnvironmentInjector } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatLegacyPaginator as MatPaginator, MatLegacyPaginatorModule as MatPaginatorModule } from '@angular/material/legacy-paginator';
-import { MatLegacySelectModule as MatSelectModule } from '@angular/material/legacy-select';
-import { MatLegacyTooltipModule as MatTooltipModule } from '@angular/material/legacy-tooltip';
-import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
-
+import { createComponent, EnvironmentInjector, Injector, NgModule } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { PblNgridModule } from '@pebula/ngrid';
 import { PblPaginatorComponent } from './table-paginator.component';
 // TODO: Remove MatPaginatorModule and the initial code in the constructor

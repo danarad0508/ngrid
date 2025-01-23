@@ -1,13 +1,12 @@
+import { Dir } from '@angular/cdk/bidi';
+import { Component, OnInit } from '@angular/core';
+import { MatMenu } from '@angular/material/menu';
+import { MatSelect } from '@angular/material/select';
+import { RouterLink } from '@angular/router';
+import type { PageAssetNavEntry } from '@pebula-internal/webpack-markdown-pages';
+import { LocationService, MarkdownPagesMenuService, SearchResults, SearchService, ViewLayoutObserver } from '@pebula/apps/docs-app-lib';
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
-import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { Dir } from '@angular/cdk/bidi';
-import { MatLegacyMenu as MatMenu } from '@angular/material/legacy-menu';
-import { MatLegacySelect as MatSelect } from '@angular/material/legacy-select';
-
-import { MarkdownPagesMenuService, LocationService, ViewLayoutObserver, SearchService, SearchResults } from '@pebula/apps/docs-app-lib';
-import type { PageAssetNavEntry } from '@pebula-internal/webpack-markdown-pages';
 
 @Component({
   selector: 'pbl-demo-home-page',

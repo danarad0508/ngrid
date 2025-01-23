@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, ChangeDetectorRef, ViewEncapsulation, ViewChild } from '@angular/core';
-import { MatLegacyRadioChange as MatRadioChange } from '@angular/material/legacy-radio';
+import { MatRadioChange } from '@angular/material/radio';
 
 import { columnFactory, PblNgridComponent } from '@pebula/ngrid';
 import { createInfiniteScrollDS } from '@pebula/ngrid/infinite-scroll';
