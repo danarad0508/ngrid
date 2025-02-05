@@ -1,6 +1,6 @@
 {
   "name": "@pebula/ngrid",
-  "version": "5.0.0",
+  "version": "6.0.1",
   "description": "Angular Grid",
   "license": "MIT",
   "scripts": {
@@ -33,7 +33,7 @@
     "nx": "./node_modules/.bin/nx",
     "postinstall": "npx rimraf ./node_modules/node-sass && node ./decorate-angular-cli.js && ngcc --properties es2020 browser module main"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "15.2.9",
     "@angular/cdk": "15.2.9",
@@ -196,4 +196,3 @@
     "sass-loader": "13.2.0"
   }
 }
-
