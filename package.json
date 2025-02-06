@@ -1,6 +1,6 @@
 {
   "name": "@pebula/ngrid",
-  "version": "6.15.30",
+  "version": "6.30.0",
   "description": "Angular Grid",
   "license": "MIT",
   "scripts": {
