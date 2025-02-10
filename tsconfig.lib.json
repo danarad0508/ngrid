@@ -3,9 +3,9 @@
   "compilerOptions": {
     "rootDir": ".",
     "paths": {
-      "@pebula/*": ["dist/@pebula/*"]
+      "@pebula/*": ["dist/pebula/*"]
     },
-    "target": "es2022",
+    "target": "es2020",
     "forceConsistentCasingInFileNames": true,
     // "strict": true,
     // "noImplicitOverride": true,

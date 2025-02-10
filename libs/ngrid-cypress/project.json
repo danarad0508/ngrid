@@ -1,50 +1,16 @@
 {
   "name": "ngrid-cypress",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "tags": ["name:material", "type:lib", "parent:ngrid"],
+  "tags": ["name:ngrid-cypress", "type:lib", "parent:ngrid"],
   "sourceRoot": "libs/ngrid-cypress/src",
   "projectType": "library",
   "targets": {
     "build": {
-      "executor": "ng-cli-packagr-tasks:build",
+      "executor": "@nrwl/angular:package",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/@pebula/ngrid-cypress",
         "tsConfig": "libs/ngrid-cypress/tsconfig.lib.json",
-        "project": "libs/ngrid-cypress/ng-package.json",
-        "tasks": {
-          "config": "tools/ng-packagr.transformers/ngrid-cypress.transformers.ts",
-          "tsConfig": "tools/tsconfig.json",
-          "data": {
-            "copyFile": {
-              "assets": [
-                {
-                  "glob": "**/*.d.ts",
-                  "input": "libs/ngrid-cypress/src",
-                  "output": "dist/@pebula/ngrid-cypress/"
-                },
-                {
-                  "glob": "README.md",
-                  "input": ".",
-                  "output": "dist/@pebula/ngrid-cypress"
-                },
-                {
-                  "glob": "LICENSE",
-                  "input": ".",
-                  "output": "dist/@pebula/ngrid-cypress"
-                }
-              ]
-            },
-            "nodeLib": {
-              "compilerOptions": {
-                "sourceMap": false,
-                "inlineSourceMap": true,
-                "inlineSources": true
-              }
-            },
-            "writePackageJson": {}
-          }
-        }
+        "project": "libs/ngrid-cypress/ng-package.json"
       },
       "configurations": {
         "production": {

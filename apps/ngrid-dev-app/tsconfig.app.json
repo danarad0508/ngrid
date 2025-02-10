@@ -2,8 +2,8 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "../../dist/out-tsc",
-    "types": ["dev-mode-types"],
-    "target": "ES2022",
+    "types": ["node", "dev-mode-types"],
+    "target": "ES2015",
     "useDefineForClassFields": false
   },
   "files": ["src/main.ts", "src/polyfills.ts"],

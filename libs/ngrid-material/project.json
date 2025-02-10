@@ -1,56 +1,23 @@
 {
   "name": "ngrid-material",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "tags": ["name:material", "type:lib", "parent:ngrid"],
+  "tags": [
+    "name:material",
+    "type:lib",
+    "parent:ngrid"
+  ],
   "sourceRoot": "libs/ngrid-material/src",
   "projectType": "library",
   "prefix": "pbl",
   "targets": {
     "build": {
-      "executor": "ng-cli-packagr-tasks:build",
-      "outputs": ["{workspaceRoot}/dist/@pebula/ngrid-material"],
+      "executor": "@nrwl/angular:package",
+      "outputs": [
+        "{workspaceRoot}/dist/pebula/ngrid-material"
+      ],
       "options": {
         "tsConfig": "libs/ngrid-material/tsconfig.lib.json",
-        "project": "libs/ngrid-material/ng-package.json",
-        "tasks": {
-          "config": "tools/ng-packagr.transformers/ngrid-material.transformers.ts",
-          "tsConfig": "tools/tsconfig.json",
-          "data": {
-            "copyFile": {
-              "assets": [
-                {
-                  "glob": "README.md",
-                  "input": ".",
-                  "output": "dist/@pebula/ngrid-material"
-                },
-                {
-                  "glob": "*.scss",
-                  "input": "libs/ngrid-material",
-                  "output": "dist/@pebula/ngrid-material"
-                },
-                {
-                  "glob": "**/*.scss",
-                  "input": "libs/ngrid-material/theming",
-                  "output": "dist/@pebula/ngrid-material/theming"
-                },
-                {
-                  "glob": "*/theming/**/*.scss",
-                  "input": "libs/ngrid-material",
-                  "output": "dist/@pebula/ngrid-material"
-                }
-              ]
-            },
-            "sassCompile": {
-              "entries": [
-                {
-                  "glob": "*.scss",
-                  "input": "libs/ngrid-material/theming/prebuilt",
-                  "output": "dist/@pebula/ngrid-material/themes"
-                }
-              ]
-            }
-          }
-        }
+        "project": "libs/ngrid-material/ng-package.json"
       },
       "configurations": {
         "production": {
@@ -59,11 +26,19 @@
         "development": {
           "tsConfig": "libs/ngrid-material/tsconfig.lib.json"
         }
-      }
+      },
+      "dependsOn": [
+        {
+          "target": "build",
+          "projects": "dependencies"
+        }
+      ]
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/libs/ngrid-material"],
+      "outputs": [
+        "{workspaceRoot}/coverage/libs/ngrid-material"
+      ],
       "options": {
         "jestConfig": "libs/ngrid-material/jest.config.ts",
         "passWithNoTests": true
@@ -75,7 +50,8 @@
           "progress": false,
           "browsers": "ChromeHeadlessCI"
         }
-      }
+      },
+      "dependsOn": ["build"]
     }
   }
 }

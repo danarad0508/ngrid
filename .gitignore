@@ -42,8 +42,12 @@ Thumbs.db
 
 .angular
 
-.nx
-.nx/cache
-
-dev_docs/migrations
-venv
+/.nx
+/.nx/cache
+/dev_docs/migrations
+/.angular/cache
+/node_modules
+/tmp
+/libs/ngrid-material/node_modules
+/venv
+apps/ngrid-docs-app/build/dist

@@ -8,11 +8,11 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "es2022",
+    "target": "es2020",
     "module": "esnext",
     "typeRoots": ["node_modules/@types", "libs-internal/local-types"],
-    "types": ["dev-mode-types"],
-    "lib": ["es2022", "dom"],
+    "types": ["node", "dev-mode-types"],
+    "lib": ["es2018", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
@@ -31,5 +31,10 @@
       "@pebula/workspace-plugin": ["tools/workspace-plugin/src/index.ts"]
     }
   },
+  "include": [
+    "src/**/*.ts",
+    "node_modules/esbuild/lib/main.d.ts",
+    "libs-internal/local-types/dev-mode-types/index.d.ts"
+  ],
   "exclude": ["dist", "node_modules", "tmp"]
 }

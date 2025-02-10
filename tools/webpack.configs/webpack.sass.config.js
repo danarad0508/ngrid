@@ -8,7 +8,7 @@ export default async () => {
   return {
     entry: path.resolve(__dirname, '../../libs/ngrid/theming/prebuilt/index.scss'),
     output: {
-      path: path.resolve(__dirname, '../../dist/@pebula/ngrid/themes'),
+      path: path.resolve(__dirname, '../../dist/pebula/ngrid/themes'),
       filename: 'styles.js',
     },
     module: {

@@ -8,15 +8,10 @@
   "sourceRoot": "libs/ngrid/src",
   "projectType": "library",
   "prefix": "pbl",
-  "generators": {
-    "@schematics/angular:component": {
-      "style": "scss"
-    }
-  },
   "targets": {
     "build": {
       "executor": "@nrwl/angular:package",
-      "outputs": ["{workspaceRoot}/dist/libs/ngrid"],
+      "outputs": ["{workspaceRoot}/dist/pebula/ngrid"],
       "options": {
         "tsConfig": "libs/ngrid/tsconfig.lib.json",
         "project": "libs/ngrid/ng-package.json"
@@ -28,41 +23,6 @@
         "development": {
           "tsConfig": "libs/ngrid/tsconfig.lib.json"
         }
-      },
-      "test": {
-        "executor": "@angular-devkit/build-angular:karma",
-        "outputs": [
-          "{workspaceRoot}/coverage/libs/ngrid"
-        ],
-        "options": {
-          "main": "libs/ngrid/src/__test-runners/karma-test.ts",
-          "tsConfig": "libs/ngrid/tsconfig.spec.json",
-          "karmaConfig": "libs/ngrid/karma.conf.js"
-        },
-        "configurations": {
-          "ci": {
-            "watch": false,
-            "progress": false,
-            "karmaConfig": "libs/ngrid/karma.conf.js",
-            "browsers": "ChromeHeadlessCI"
-          }
-        }
-      },
-      "testJest": {
-        "executor": "@nx/jest:jest",
-        "outputs": [
-          "{workspaceRoot}/coverage/libs/ngrid"
-        ],
-        "options": {
-          "jestConfig": "libs/ngrid/jest.config.ts",
-          "passWithNoTests": true
-        }
-      }
-    },
-    "sassCompile": {
-      "executor": "@nx/web:webpack",
-      "options": {
-        "webpackConfig": "tools/webpack/webpack.sass.config.js"
       }
     }
   }

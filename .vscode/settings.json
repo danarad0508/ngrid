@@ -32,5 +32,8 @@
     "nodeVersionHint": 14
   },
   "angular.log": "verbose",
-  "eslint.validate": ["json"]
+  "eslint.validate": [
+    "json"
+  ],
+  "git.ignoreLimitWarning": true
 }

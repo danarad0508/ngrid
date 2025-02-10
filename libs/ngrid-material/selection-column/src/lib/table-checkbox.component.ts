@@ -92,20 +92,20 @@ export class PblNgridCheckboxComponent implements AfterViewInit, OnDestroy {
 
   constructor(public table: PblNgridComponent<any>, private cdr: ChangeDetectorRef) {
     const pluginCtrl = PblNgridPluginController.find(table);
-    pluginCtrl.events
-      .pipe(unrx(this))
-      .subscribe( e => {
-        if (e.kind === 'onDataSource') {
-          this.selection = e.curr.selection;
-        }
-      });
+    // pluginCtrl.events
+    //   .pipe(unrx(this))
+    //   .subscribe( e => {
+    //     if (e.kind === 'onDataSource') {
+    //       this.selection = e.curr.selection;
+    //     }
+    //   });
 
   }
 
   ngAfterViewInit(): void {
-    if (!this.selection && this.table.ds) {
-      this.selection = this.table.ds.selection;
-    }
+    // if (!this.selection && this.table.ds) {
+    //   this.selection = this.table.ds.selection;
+    // }
 
     const registry = this.table.registry;
     registry.addMulti('headerCell', this.headerDef);

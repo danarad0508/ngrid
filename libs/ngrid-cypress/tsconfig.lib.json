@@ -3,9 +3,9 @@
   "compilerOptions": {
     "rootDir": ".",
     "paths": {
-      "@pebula/*": ["dist/@pebula/*"]
+      "@pebula/*": ["dist/pebula/*"]
     },
-    "target": "es2022",
+    "target": "ES2015",
     "module": "commonjs",
     "types": ["cypress", "node"],
     "declaration": true,

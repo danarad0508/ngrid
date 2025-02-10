@@ -1,7 +1,6 @@
 {
   "extends": "../../tsconfig.base.json",
   "files": [],
-  "include": [],
   "references": [
     {
       "path": "./tsconfig.lib.json"
@@ -17,7 +16,7 @@
     }
   ],
   "compilerOptions": {
-    "target": "es2020",
+    "target": "ES2015",
     "forceConsistentCasingInFileNames": true,
       // "strict": true,
     // "noImplicitOverride": true,

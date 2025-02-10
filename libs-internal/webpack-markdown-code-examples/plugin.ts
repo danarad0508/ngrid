@@ -1,7 +1,8 @@
-import * as Path from 'path';
-import * as FS from 'fs';
-import * as globby from 'globby';
+// import * as Path from 'path';
+import * as Path from 'path-browserify'; 
+import * as fs from 'fs';
 import * as webpack from 'webpack';
+import * as globby from 'globby';
 
 const remarkPrismJs = require('gatsby-remark-prismjs');
 
@@ -176,7 +177,7 @@ export class MarkdownCodeExamplesWebpackPlugin {
 
   private processFile(file: string) {
     const fullPath = Path.join(this.options.context, file);
-    const source = FS.readFileSync(fullPath, { encoding: 'utf-8' });
+    const source = fs.readFileSync(fullPath, { encoding: 'utf-8' });
     const root = Path.dirname(fullPath);
     const primary = parseExampleTsFile(fullPath, source);
 
@@ -189,7 +190,7 @@ export class MarkdownCodeExamplesWebpackPlugin {
           pathAssets.set(fullPath, asset);
         } else {
           const secondaryFullPath = Path.join(root, asset.file);
-          asset.source = FS.readFileSync(secondaryFullPath, { encoding: 'utf-8' });
+          asset.source = fs.readFileSync(secondaryFullPath, { encoding: 'utf-8' });
           if (asset.source) {
             pathAssets.set(secondaryFullPath, asset);
           }

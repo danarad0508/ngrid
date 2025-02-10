@@ -1,5 +1,6 @@
-import * as Path from 'path';
-import * as FS from 'fs';
+// import * as Path from 'path';
+import * as Path from 'path-browserify'; 
+import * as fs from 'fs';
 import * as globby from 'globby';
 import * as matter from 'gray-matter';
 import { SyncHook } from 'tapable';
@@ -293,7 +294,7 @@ export class MarkdownPagesWebpackPlugin {
 
   private processFile(file: string) {
     const fullPath = Path.join(this.root, file);
-    const source = FS.readFileSync(fullPath, { encoding: 'utf-8' });
+    const source = fs.readFileSync(fullPath, { encoding: 'utf-8' });
     const parsedAttr = matter(source);
     const contents = this.remarkCompiler().processSync(parsedAttr.content).contents as string;
 

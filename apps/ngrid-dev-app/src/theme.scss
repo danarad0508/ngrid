@@ -9,7 +9,7 @@ $ngrid-material-starter-warn: mat.define-palette(mat.$red-palette);
 $ngrid-material-starter-theme: mat.define-light-theme($ngrid-material-starter-primary, $ngrid-material-starter-accent, $ngrid-material-starter-warn);
 $ngrid-material-starter-theme: ngrid.define-light-theme($ngrid-material-starter-theme);
 
-@include mat.core($typography-config);
+@include mat.core();//$typography-config);
 @include ngrid.ngrid-typography($typography-config);
 @include mat.all-component-themes($ngrid-material-starter-theme);
 @include ngrid-material.all-ngrid-material-theme($ngrid-material-starter-theme);

@@ -1,4 +1,5 @@
-import * as Path from 'path';
+// import * as Path from 'path';
+import * as Path from 'path-browserify'; 
 import * as ts from 'typescript';
 import { ExampleFileAsset, ParsedComponentMetadata, ParsedPrimaryComponentMetadata } from './models';
 

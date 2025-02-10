@@ -1,5 +1,5 @@
 import * as webpack from 'webpack';
-export interface DynamicExportedObject { }; //tslint:disable-line
+export interface DynamicExportedObject { };
 
 const pluginName = 'pebula-dynamic-dictionary-webpack-plugin';
 const store = new WeakMap<webpack.Compiler, PebulaDynamicDictionaryWebpackPlugin>();
@@ -21,9 +21,8 @@ class LazySource {
       return new webpack.sources.RawSource(JSON.stringify(this.metadata));
     })
 
-  }
+  } 
 }
-
 
 /**
  * A simple plugin that just allows to expose a dynamic JSON object which can be live edited until main compilation emits.

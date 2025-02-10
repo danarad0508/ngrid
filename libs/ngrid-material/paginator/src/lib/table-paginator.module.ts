@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { createComponent, EnvironmentInjector, Injector, NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { PblNgridModule } from '@pebula/ngrid';
 import { PblPaginatorComponent } from './table-paginator.component';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 // TODO: Remove MatPaginatorModule and the initial code in the constructor
 // set the styles in the SCSS.
 

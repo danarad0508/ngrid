@@ -1,6 +1,5 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "npmScope": "pebula",
   "affected": {
     "defaultBase": "master"
   },
@@ -55,6 +54,20 @@
       ]
     }
   },
+  "projects": {
+    "ngrid-material": {
+      "targets": {
+        "build": {
+          "dependsOn": [
+            {
+              "target": "build",
+              "projects": "ngrid"
+            }
+          ]
+        }
+      }
+    }
+  },
   "namedInputs": {
     "default": [
       "{projectRoot}/**/*",
@@ -71,7 +84,6 @@
       "!{projectRoot}/src/test-setup.[jt]s"
     ],
     "sharedGlobals": [
-      "{workspaceRoot}/angular.json",
       "{workspaceRoot}/nx.json",
       "{workspaceRoot}/tsconfig.base.json"
     ]

@@ -6,5 +6,5 @@
     "types": [],
     "skipLibCheck": true
   },
-  "include": ["../libs/docs-app-lib/**/*.worker.ts"]
+  "include": ["../libs/docs-app-lib/**/*.worker.ts"],
 }

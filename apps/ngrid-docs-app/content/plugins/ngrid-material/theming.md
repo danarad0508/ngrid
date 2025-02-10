@@ -69,7 +69,7 @@ missing definitions and create a new theme that you can send to `ngrid.ngrid-the
 @use '@pebula/ngrid-material' as ngrid-material;
 
 $typography-config: mat.define-typography-config();
-@include mat.core($typography-config);
+@include mat.core();//$typography-config);
 
 // Creating pallets for our theme using 3 color schemas
 $candy-app-primary: mat.define-palette(mat.$indigo-palette);
@@ -82,7 +82,7 @@ $candy-app-theme:   mat.define-light-theme($candy-app-primary, $candy-app-accent
 // Updating the theme to include ngrid definitions, it is still compatible with material!
 $candy-app-theme: ngrid.define-light-theme($candy-app-theme);
 
-@include mat.core($typography-config);
+@include mat.core();//$typography-config);
 @include ngrid.ngrid-typography($typography-config);
 
 // rendering the material styles
