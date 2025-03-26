@@ -1,6 +1,6 @@
 {
   "name": "@pebula/ngrid",
-  "version": "6.40.0",
+  "version": "15.0.1",
   "description": "Angular Grid",
   "license": "MIT",
   "scripts": {
@@ -31,7 +31,7 @@
     "affected": "./node_modules/.bin/nx affected",
     "example": "./node_modules/.bin/nx workspace-schematic create-docs-app-module",
     "nx": "./node_modules/.bin/nx",
-    "postinstall": "npx rimraf ./node_modules/node-sass && node ./decorate-angular-cli.js && ngcc --properties es2020 browser module main"
+    "postinstall": "npx rimraf ./node_modules/node-sass && node ./decorate-angular-cli.js"
   },
   "private": false,
   "dependencies": {
