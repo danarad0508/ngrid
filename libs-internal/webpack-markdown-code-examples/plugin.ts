@@ -1,8 +1,6 @@
-// import * as Path from 'path';
 import * as Path from 'path-browserify'; 
 import * as fs from 'fs';
 import * as webpack from 'webpack';
-import * as globby from 'globby';
 
 const remarkPrismJs = require('gatsby-remark-prismjs');
 
@@ -12,6 +10,30 @@ import { PebulaDynamicDictionaryWebpackPlugin } from '@pebula-internal/webpack-d
 import { PebulaNoCleanIfAnyWebpackPlugin } from '@pebula-internal/webpack-no-clean-if-any';
 import { ParsedExampleMetadata, ExampleFileAsset } from './models';
 import { createInitialExampleFileAssets, parseExampleTsFile } from './utils';
+// import globby from 'globby';
+
+// let globby: typeof import('globby').globby;
+
+// async function loadGlobby() {
+//   console.log('globby1');
+//   if (!globby) {
+//     console.log('globby2');
+//     globby = (await import('globby')).globby;
+//     console.log('globby3');
+//   }
+// }
+
+// async function loadGlobby() {
+//   console.log('globby11');
+//   console.log('Globby path:', require.resolve('globby')); // Verify path before import
+//   const { globby } = await import('globby').catch(e => {
+//     console.error('Failed to load globby', e);
+//     return { globby: undefined };
+//   });
+//   console.log('globby22', globby !== undefined);
+//   return globby;
+// }
+
 
 declare module '@pebula-internal/webpack-dynamic-dictionary/plugin' {
   interface DynamicExportedObject {
@@ -158,15 +180,22 @@ export class MarkdownCodeExamplesWebpackPlugin {
 
     compilation.emitAsset(this.lastNavEntriesAssetPath, new webpack.sources.RawSource(navEntriesSource));
 
+    console.log('AAA MarkdownCodeExamplesWebpackPlugin emit', this.lastNavEntriesAssetPath, this.cache.size, compilation.fileSystemInfo.getDeprecatedFileTimestamps().size);
     PebulaDynamicDictionaryWebpackPlugin.find(this.compiler).update('markdownCodeExamples', this.lastNavEntriesAssetPath);
   }
 
   private async run(compiler: webpack.Compiler & { watchMode?: boolean }) {
     // Store watch mode; assume true if not present (webpack < 4.23.0)
     this.watchMode = compiler.watchMode ?? true;
+
+    // await loadGlobby();
+    // const globby = await loadGlobby();
+    const globbyModule = await import('globby');
+    const globby = globbyModule.default;
     const paths = await globby(this.options.docsPath, {
       cwd: this.options.context
     });
+    console.log('Globby paths:', paths?.length);
 
     for (const p of paths) {
       if (this.firstRun || !this.cache.has(p)) {

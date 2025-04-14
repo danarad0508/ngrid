@@ -10,7 +10,7 @@
   "prefix": "pbl",
   "targets": {
     "build": {
-      "executor": "@nrwl/angular:webpack-browser",
+      "executor": "@nx/angular:webpack-browser",
       "outputs": [
         "{options.outputPath}"
       ],
@@ -31,20 +31,36 @@
         "styles": [
           "apps/ngrid-docs-app/src/styles/main.scss"
         ],
-        "scripts": [],
+        "scripts": [
+          "node_modules/zone.js"
+        ],
         "webWorkerTsConfig": "apps/ngrid-docs-app/tsconfig.worker.json",
         "allowedCommonJsDependencies": [
           "country-data",
           "currency-symbol-map",
           "faker",
-          "domino",
-          "globby",
-          "gray-matter",
           "remark-html",
           "remark-parse",
           "unified",
           "sitemap-webpack-plugin",
-          "@xtuc/long"
+          "@xtuc/long",
+          "@ngtools/webpack",
+          "assert",
+          "browserify-zlib",
+          "buffer",
+          "crypto-browserify",
+          "https-browserify",
+          "node-polyfill-webpack-plugin",
+          "os-browserify/browser",
+          "path-browserify",
+          "querystring-es3",
+          "simple-git/promise",
+          "stream-browserify",
+          "stream-http",
+          "tty-browserify",
+          "vm-browserify",
+          "util",
+          "webpack"
         ]
       },
       "configurations": {
@@ -67,6 +83,7 @@
               "with": "apps/ngrid-docs-app/src/environments/environment.prod.ts"
             }
           ],
+          "optimization": true,
           "outputHashing": "all"
         },
         "development": {
@@ -84,22 +101,27 @@
       "defaultConfiguration": "production"
     },
     "serve": {
-      "executor": "@nrwl/angular:webpack-dev-server",
+      "executor": "@nx/angular:webpack-dev-server",
       "options": {
-        "port": 4201
+        "browserTarget": "ngrid-docs-app:build",
+        "hmr": false,
+        "port": 4201,
+        "liveReload": true
       },
       "configurations": {
         "development": {
           "browserTarget": "ngrid-docs-app:build:development"
+          
         },
         "production": {
           "browserTarget": "ngrid-docs-app:build:production"
+          
         }
       },
       "defaultConfiguration": "development"
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": [
           "apps/ngrid-docs-app/**/*.ts",

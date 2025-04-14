@@ -299,7 +299,8 @@ Last thing to remember is to un-register the plugin un destruction:
 ```typescript
   ngOnDestroy(): void {
     unrx.kill(this);
-    this._removePlugin(this.grid);
+    if (this._removePlugin)
+      this._removePlugin(this.grid);
   }
 ```
 

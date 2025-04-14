@@ -14,8 +14,10 @@
     }
   ],
   "compilerOptions": {
-    "target": "es2020",
+    "target": "es2022",
     "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "types": ["node", "jest", "dev-mode-types"],
     // "strict": true,
     // "noImplicitOverride": true,

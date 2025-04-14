@@ -12,8 +12,14 @@ export class MarkdownCodeExamplesService {
     if (!this.markdownCodeExamples) {
       if (!this.fetching) {
         this.fetching = this.contentMapping.getMapping
-          .then(({ markdownCodeExamples }) => this.httpClient.get<{ [cmpSelector: string]: string }>(markdownCodeExamples).toPromise() )
-          .then( markdownCodeExamples => this.markdownCodeExamples = markdownCodeExamples );
+          .then(({ markdownCodeExamples }) => {
+            console.log('AAA MarkdownCodeExamplesService ready markdownCodeExamples1:', markdownCodeExamples); // Debug log
+            return this.httpClient.get<{ [cmpSelector: string]: string }>(markdownCodeExamples).toPromise();
+          })
+          .then( markdownCodeExamples => {
+            console.log('AAA markdownCodeExamplesService ready markdownCodeExamples2:', markdownCodeExamples); // Debug log
+            this.markdownCodeExamples = markdownCodeExamples;
+          });
       }
       return this.fetching.then( () => this);
     } else {

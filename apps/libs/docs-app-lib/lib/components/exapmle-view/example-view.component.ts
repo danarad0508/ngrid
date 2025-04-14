@@ -60,6 +60,7 @@ export class ExampleViewComponent extends MarkdownDynamicComponentPortal impleme
               private angulartics2: Angulartics2,
               private exampleService: MarkdownCodeExamplesService,
               @Inject(EXAMPLE_COMPONENTS_TOKEN) private exampleComponents: {[key: string]: LiveExample} ) {
+                console.log('AAA ctor ExampleViewComponent');
     super(injector);
   }
 

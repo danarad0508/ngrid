@@ -24,11 +24,13 @@ export class RowIntersectionTracker {
   }
 
   track(element: HTMLElement) {
-    this.intersectionObserver?.observe(element);
+    if (element)
+      this.intersectionObserver?.observe(element);
   }
 
   untrack(element: HTMLElement) {
-    this.intersectionObserver?.unobserve(element);
+    if (element)
+      this.intersectionObserver?.unobserve(element);
   }
 
   destroy() {

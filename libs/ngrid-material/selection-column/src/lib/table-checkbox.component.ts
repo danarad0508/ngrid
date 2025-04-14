@@ -119,10 +119,10 @@ export class PblNgridCheckboxComponent implements AfterViewInit, OnDestroy {
 
   masterToggle(): void {
     if (this.allSelected) {
-      this.selection.clear();
+      this.selection?.clear();
     } else {
       const selected = this.getCollection().filter(data => !this._isCheckboxDisabled(data));
-      this.selection.select(...selected);
+      this.selection?.select(...selected);
     }
   }
 

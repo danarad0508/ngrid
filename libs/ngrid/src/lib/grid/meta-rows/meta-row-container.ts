@@ -87,12 +87,13 @@ export class PblNgridMetaRowContainerComponent implements OnChanges, OnDestroy {
     const widthContainer = this.element.firstElementChild;
     const container = widthContainer.nextElementSibling;
 
-    if (isHeader) {
+    if (isHeader && this.metaRows.gridWidthRow.el) {
       widthContainer.appendChild(this.metaRows.gridWidthRow.el);
     }
 
     for (const def of section.fixed) {
-      container.appendChild(def.el);
+      if (def.el)
+        container.appendChild(def.el);
     }
   }
 }

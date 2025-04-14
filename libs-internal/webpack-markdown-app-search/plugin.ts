@@ -5,6 +5,9 @@ import { PebulaNoCleanIfAnyWebpackPlugin } from '@pebula-internal/webpack-no-cle
 import { ParsedPage } from '@pebula-internal/webpack-markdown-pages';
 import { SearchableSource } from './models';
 import { MarkdownPagesWebpackPlugin } from '../webpack-markdown-pages/plugin';
+// import { JSDOM } from 'jsdom';
+// import { parseDocument } from 'htmlparser2';
+// import * as cheerio from 'cheerio';
 
 // const domino = require('domino');
 const { util: { createHash } } = webpack as any;
@@ -62,9 +65,17 @@ export class MarkdownAppSearchWebpackPlugin {
 
 function createSearchableSource(parsedPage: ParsedPage): SearchableSource {
   const { navEntry } = parsedPage.postRenderMetadata;
+  // const $ = cheerio.load(parsedPage.contents);
+  // const dom = new JSDOM(parsedPage.contents);
+  // const doc = dom.window.document;
   const doc = domino.createDocument(parsedPage.contents, true)
+  // const parser = new DOMParser();
+  // const doc = parser.parseFromString(parsedPage.contents, 'text/html');
+  // const doc = parseDocument(parsedPage.contents);
   const headingWords = new Set<string>();
-  doc.querySelectorAll('h1,h2,h3,h4,h5,h6').forEach( item => headingWords.add(item.textContent) );
+  doc.querySelectorAll('h1,h2,h3,h4,h5,h6')
+    .forEach( item => headingWords.add(item.textContent) );
+
 
   const searchable: SearchableSource = {
     path: navEntry.path,

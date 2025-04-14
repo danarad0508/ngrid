@@ -96,8 +96,7 @@ export class PblNgridColumnDragDirective<T = any> extends CdkLazyDrag<T, PblNgri
 
     this.updateBoundaryElement();
     if (this.cdkDropList) {
-      this.cdkDropList.connectionsChanged
-        .pipe(unrx(this, this.cdkDropList))
+      this.cdkDropList.connectionsChanged?.pipe(unrx(this, this.cdkDropList))
         .subscribe(() => this.updateBoundaryElement());
     }
   }

@@ -123,7 +123,8 @@ export class PblNgridBlockUiPluginDirective<T> implements OnDestroy {
 
   ngOnDestroy(): void {
     unrx.kill(this);
-    this._removePlugin(this.grid);
+    if (this._removePlugin)
+      this._removePlugin(this.grid);
   }
 
   private setupBlocker(): void {

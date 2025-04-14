@@ -1,6 +1,6 @@
 import { enableProdMode, ViewEncapsulation } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-
+import 'zone.js';
 import { DevAppRootModule } from './dev-app/dev-app-root.module';
 import { environment } from './environment';
 

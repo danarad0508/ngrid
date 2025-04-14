@@ -74,7 +74,8 @@ export class PblNgridClipboardPlugin implements OnDestroy {
 
   ngOnDestroy(): void {
     unrx.kill(this);
-    this._removePlugin(this.grid);
+    if (this._removePlugin)
+      this._removePlugin(this.grid);
   }
 
   protected isCopyEvent(event: Event): boolean {

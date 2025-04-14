@@ -1,4 +1,5 @@
-import * as visit from 'unist-util-visit';
+// import * as visit from 'unist-util-visit';
+const visit = require('unist-util-visit')
 
 /**
  * Add a `docsi-toc` attribute to all headings.

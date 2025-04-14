@@ -71,7 +71,7 @@ export abstract class PblNgridBaseRowComponent<TRowType extends GridRowType, T =
       }
     }
     this.resolveTokens();
-    this.element.setAttribute('data-rowtype', this.rowType);
+    this.element?.setAttribute('data-rowtype', this.rowType);
     this._extApi.rowsApi.addRow(this)
   }
 
@@ -90,7 +90,7 @@ export abstract class PblNgridBaseRowComponent<TRowType extends GridRowType, T =
 
   ngOnDestroy(): void {
     unrx.kill(this);
-    this._extApi?.rowsApi.removeRow(this);
+    this._extApi?.rowsApi?.removeRow(this);
   }
 
   /**

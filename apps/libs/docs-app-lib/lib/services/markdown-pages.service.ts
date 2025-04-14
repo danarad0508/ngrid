@@ -12,10 +12,20 @@ export class MarkdownPagesService {
     if (!this.markdownPages) {
       if (!this.fetching) {
         this.fetching = this.contentMapping.getMapping
-          .then(({ markdownPages }) => this.httpClient.get<PageNavigationMetadata>(markdownPages).toPromise() )
-          .then( markdownPages => this.markdownPages = markdownPages );
+          .then((response: any) => {
+          
+            console.log('AAA MarkdownPagesService ready response1', response); // Debug log
+            if (response.markdownPages !== undefined)
+              return this.httpClient.get<PageNavigationMetadata>(response.markdownPages).toPromise();
+            else 
+              return Promise.resolve(null);
+          })
+          .then(markdownPages => {
+            console.log('AAA MarkdownPagesService ready markdownPages2:', markdownPages); // Debug log
+            this.markdownPages = markdownPages;
+        });
       }
-      return this.fetching.then( () => this);
+      return this.fetching.then(() => this);
     } else {
       return Promise.resolve(this);
     }
@@ -33,20 +43,22 @@ export class MarkdownPagesService {
     }
 
     return this.ready
-      .then( () => {
-        const url = this.markdownPages.entryData[path];
+      .then(() => {
+        const url = this.markdownPages?.entryData[path];
         if (url) {
           return this.httpClient.get<PageFileAsset>(url).toPromise()
-            .then( page => {
+            .then(page => {
               this._cache.set(path, page);
               return page;
             });
         } else {
-          const entry = this.markdownPages.entries[path];
+          const entry = this.markdownPages?.entries[path];
           if (entry) {
             return { id: path, title: entry.title, contents: '' };
           }
-          throw new Error(`Could not find a page ${path}`);
+         // throw new Error(`Could not find a page ${path}`);
+         console.log(`Could not find a page ${path}`);
+         return;
         }
       });
   }

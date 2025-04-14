@@ -4,7 +4,7 @@
     "outDir": "../../dist/out-tsc",
     "module": "ES2020",
     "types": ["jest", "node", "dev-mode-types"],
-    "target": "es2020"
+    "target": "es2022"
   },
   "files": ["src/__test-runners/jest-test-setup.ts"],
   "include": ["**/*.spec.ts", "**/*.test.ts", "**/*.d.ts"]

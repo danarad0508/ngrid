@@ -26,6 +26,7 @@ export class SsrAndSeoWebpackPlugin {
   }
 
   apply(compiler: webpack.Compiler): void {
+    console.log('AAA apply1')
     MarkdownPagesWebpackPlugin.getCompilationHooks(compiler).markdownPageNavigationMetadataReady.tap(pluginName, (context) => {
       const { navMetadata, compilation } = context;
 

@@ -26,7 +26,7 @@ export class MarkdownPageContainerComponent implements AfterViewInit, OnDestroy 
   entry: string;
   documentUrl: string;
   pageRendered: boolean;
-  @ViewChild('tocArea', { static: true, read: TocAreaDirective}) tocArea: TocAreaDirective;
+  @ViewChild('tocArea', { static: true, read: TocAreaDirective }) tocArea: TocAreaDirective;
 
   menu$ = new Subject<any>();
 
@@ -49,28 +49,29 @@ export class MarkdownPageContainerComponent implements AfterViewInit, OnDestroy 
   }
 
   constructor(public readonly viewLayout: ViewLayoutObserver,
-              public readonly mdPagesMenu: MarkdownPagesMenuService,
-              public readonly dir: Directionality,
-              private route: ActivatedRoute,
-              private cdr: ChangeDetectorRef) { }
+    public readonly mdPagesMenu: MarkdownPagesMenuService,
+    public readonly dir: Directionality,
+    private route: ActivatedRoute,
+    private cdr: ChangeDetectorRef) { }
 
   ngAfterViewInit(): void {
     this.route.url
       .pipe(
         debounceTime(1),
-        map( urlSegments => urlSegments.map(u => u.path) ),
+        map(urlSegments => urlSegments.map(u => u.path)),
         unrx(this)
       )
-      .subscribe( paths => this.handleUrlUpdate(paths) );
+      .subscribe(paths => this.handleUrlUpdate(paths));
 
     this.viewLayout.isWeb$
       .pipe(unrx(this))
-      .subscribe( isWeb => {
+      .subscribe(isWeb => {
         if (isWeb) {
           this.mode = 'side';
         } else {
           this.mode = 'over';
         }
+        this.cdr.detectChanges()
         this.layoutState.isWeb = isWeb;
         this.setMenuState();
       });
@@ -126,6 +127,7 @@ export class MarkdownPageContainerComponent implements AfterViewInit, OnDestroy 
   }
 
   private handleUrlUpdate(paths: string[]): void {
+    console.log('AAA handleUrlUpdate paths:', paths); // Debug log
     this.layoutState.hamburger = false;
     this.drawer.close();
     this.active = undefined;
@@ -134,7 +136,8 @@ export class MarkdownPageContainerComponent implements AfterViewInit, OnDestroy 
 
     if (this.entry !== paths[0]) {
       this.mdPagesMenu.getMenu(this.entry = paths[0])
-        .then( entry => {
+        .then(entry => {
+          console.log('AAA Resolved Menu Entry:', entry); // Debug log
           this.findActive(this.root = entry);
           this.menu$.next(entry);
           this.setMenuState();
@@ -143,6 +146,7 @@ export class MarkdownPageContainerComponent implements AfterViewInit, OnDestroy 
           }
         })
         .catch(err => {
+          console.error('Error resolving menu:', err); // Debug log
           this.menu$.next(null);
           this.root = undefined;
           this.setMenuState();
@@ -155,7 +159,7 @@ export class MarkdownPageContainerComponent implements AfterViewInit, OnDestroy 
 
   private findActive(entry: NavEntry) {
     if (entry === this.root) {
-      if (entry.children) {
+      if (entry?.children) {
         for (const e of entry.children) {
           const result = this.findActive(e);
           if (result) {
@@ -165,7 +169,7 @@ export class MarkdownPageContainerComponent implements AfterViewInit, OnDestroy 
         }
       }
       if (!this.active) {
-        this.active = entry.children ? entry.children[0] : entry;
+        this.active = entry?.children ? entry.children[0] : entry;
       }
       return this.active;
     }

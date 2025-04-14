@@ -1,4 +1,5 @@
-import * as visit from 'unist-util-visit';
+// import visit from 'unist-util-visit';
+const visit = require('unist-util-visit')
 
 // https://github.com/swimlane/DocSPA/blob/master/projects/swimlane/docspa-remark-preset/src/plugins/remark-custom-blockquotes.ts
 export function customBlockquotes({ mapping }) {

@@ -1,4 +1,5 @@
-import * as visit from 'unist-util-visit';
+// import { visit } from 'unist-util-visit';
+const visit = require('unist-util-visit')
 const remarkPrismJs = require('gatsby-remark-prismjs');
 
 export function gatsbyRemarkPrismJs(forAngularTemplate = false) {

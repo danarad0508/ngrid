@@ -61,7 +61,7 @@ export class PblNgridRowComponent<T = any> extends PblNgridBaseRowComponent<'dat
   }
 
   updateRow() {
-    if (this.currRow !== this.context.$implicit) {
+    if (this.currRow !== this.context?.$implicit) {
       this.prevRow = this.currRow;
       this.currRow = this.context.$implicit;
 
@@ -125,7 +125,7 @@ export class PblNgridRowComponent<T = any> extends PblNgridBaseRowComponent<'dat
   _setOutOfViewState(outOfView: boolean) {
     if (this.outOfView !== outOfView) {
       this.outOfView = outOfView;
-      if (this.context?.outOfView !== outOfView) {
+      if (this.context && this.context.outOfView !== outOfView) {
         this.context.outOfView = outOfView;
         // TODO: If scrolling, mark the row for check and update only after scroll is done
         this.ngDoCheck();

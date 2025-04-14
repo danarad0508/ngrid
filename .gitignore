@@ -51,3 +51,4 @@ Thumbs.db
 /libs/ngrid-material/node_modules
 /venv
 apps/ngrid-docs-app/build/dist
+apps/ngrid-docs-app/build/.webpack-cache

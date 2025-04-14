@@ -53,7 +53,8 @@ export class PblNgridRowReorderPluginDirective<T = any> extends CdkLazyDropList<
 
   ngOnDestroy(): void {
     super.ngOnDestroy();
-    this._removePlugin(this.grid);
+    if (this._removePlugin)
+      this._removePlugin(this.grid);
   }
 
   getSortedItems() {

@@ -55,18 +55,18 @@ export class MarkdownPageViewerComponent implements OnDestroy {
   private _portalHosts: DomPortalOutlet[] = [];
 
   constructor(private mdPages: MarkdownPagesService,
-              private metaService: Meta,
-              private titleService: Title,
-              private locationService: LocationService,
-              route: ActivatedRoute,
-              private _appRef: ApplicationRef,
-              private _componentFactoryResolver: ComponentFactoryResolver,
-              private _injector: Injector,
-              private _viewContainerRef: ViewContainerRef,
-              private _ngZone: NgZone,
-              @Optional() container: MarkdownPageContainerComponent) {
+    private metaService: Meta,
+    private titleService: Title,
+    private locationService: LocationService,
+    route: ActivatedRoute,
+    private _appRef: ApplicationRef,
+    private _componentFactoryResolver: ComponentFactoryResolver,
+    private _injector: Injector,
+    private _viewContainerRef: ViewContainerRef,
+    private _ngZone: NgZone,
+    @Optional() container: MarkdownPageContainerComponent) {
     this.hasContainer = !!container;
-    route.data.pipe(unrx(this)).subscribe( data => {
+    route.data.pipe(unrx(this)).subscribe(data => {
       if (data.documentUrl) {
         this.updateDocument(data.documentUrl);
       }
@@ -76,7 +76,7 @@ export class MarkdownPageViewerComponent implements OnDestroy {
   @HostListener('click', ['$event.target', '$event.button', '$event.ctrlKey', '$event.metaKey', '$event.altKey'])
   onClick(eventTarget: HTMLElement, button: number, ctrlKey: boolean, metaKey: boolean, altKey: boolean): boolean {
     // Deal with anchor clicks; climb DOM tree until anchor found (or null)
-    let target: HTMLElement|null = eventTarget;
+    let target: HTMLElement | null = eventTarget;
     while (target && !(target instanceof HTMLAnchorElement)) {
       target = target.parentElement;
     }
@@ -94,6 +94,7 @@ export class MarkdownPageViewerComponent implements OnDestroy {
   }
 
   private updateDocument(url: string) {
+    console.log('AAA updateDocument url1', url); // Debug log)
     this.page = undefined;
     this._clearLiveExamples();
     if (!url) {
@@ -101,14 +102,17 @@ export class MarkdownPageViewerComponent implements OnDestroy {
       this.addOrModifyTag({ property: 'og:title', content: `` });
       return;
     }
+    console.log('AAA updateDocument url2', url); // Debug log)
     this.mdPages.getPage(url)
-      .then( p => {
+      .then(p => {
+        console.log('AAA updateDocument url3', url, p); // Debug log)
         this.page = p;
-        this.titleService.setTitle(`NGrid: ${p.title}`);
-        this.addOrModifyTag({ property: 'og:title', content: `NGrid: ${p.title}` });
-        this.elementRef.nativeElement.innerHTML = p.contents;
+        this.titleService.setTitle(`NGrid: ${p?.title}`);
+        this.addOrModifyTag({ property: 'og:title', content: `NGrid: ${p?.title}` });
+        this.elementRef.nativeElement.innerHTML = p?.contents;
 
         if (typeof this.elementRef.nativeElement.getBoundingClientRect === 'function') {
+          console.log('AAA updateDocument url4', url, p); // Debug log)
           this._loadComponents('pbl-example-view', ExampleViewComponent);
           this._loadComponents('pbl-app-content-chunk', ContentChunkViewComponent);
         }
@@ -136,7 +140,7 @@ export class MarkdownPageViewerComponent implements OnDestroy {
       if (inputs) {
         try {
           cmpRef.instance.inputParams = JSON.parse(inputs);
-        } catch(err) { }
+        } catch (err) { }
       }
       cmpRef.instance.componentName = ident;
       cmpRef.instance.containerClass = containerClass;

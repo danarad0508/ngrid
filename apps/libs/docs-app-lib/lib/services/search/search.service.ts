@@ -37,7 +37,10 @@ export class SearchService {
     )
     .pipe(
       switchMap( x => this.contentMapping.getMapping ),
-      concatMap(( {searchContent}) => this.adapter.loadIndex(searchContent) ),
+      concatMap(( {searchContent}) => {
+        console.log('AAA SearchService loadIndex searchContent:', searchContent); // Debug log
+        return this.adapter.loadIndex(searchContent);
+   } ),
       publishReplay(1),
     );
 

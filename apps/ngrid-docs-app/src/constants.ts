@@ -1,0 +1,1 @@
+export const NGRID_CONTENT_MAPPING_FILE = 'ngrid-content-mapping.json';

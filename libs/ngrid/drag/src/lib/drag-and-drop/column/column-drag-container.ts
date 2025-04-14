@@ -76,9 +76,10 @@ export class PblNgridColumnDragContainerDirective<T = any> extends CdkLazyDropLi
 
   ngOnDestroy(): void {
     super.ngOnDestroy();
-    this.connectionsChanged.complete();
-    this.dragging.complete();
-    this._removePlugin(this.grid);
+    this.connectionsChanged?.complete();
+    this.dragging?.complete();
+    if (this._removePlugin)
+      this._removePlugin(this.grid);
   }
 
   protected initDropListRef(): void {

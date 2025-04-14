@@ -204,7 +204,8 @@ export class PblNgridDetailRowPluginDirective<T> implements OnDestroy {
     if (this._defaultParentRef) {
       this._defaultParentRef.destroy();
     }
-    this._removePlugin(this.grid);
+    if (this._removePlugin)
+      this._removePlugin(this.grid);
   }
 
   /** @internal */

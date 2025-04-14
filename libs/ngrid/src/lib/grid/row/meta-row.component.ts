@@ -100,10 +100,10 @@ export class PblNgridMetaRowComponent extends PblNgridBaseRowComponent<'meta-hea
     if (value !== this._row) {
       applyMetaRowClass(this.metaRows, this, this.element, this._meta, value?.rowDef);
       if (this._row?.isGroup) {
-        this.element.classList.remove('pbl-meta-group-row');
+        this.element?.classList?.remove('pbl-meta-group-row');
       }
       if (value?.isGroup) {
-        this.element.classList.add('pbl-meta-group-row');
+        this.element?.classList?.add('pbl-meta-group-row');
       }
       this._row = value;
     }
