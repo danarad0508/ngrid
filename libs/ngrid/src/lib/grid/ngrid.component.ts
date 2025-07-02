@@ -369,6 +369,8 @@ export class PblNgridComponent<T = any> implements AfterContentInit, AfterViewIn
     this.invalidateColumns();
 
     Object.defineProperty(this, 'isInit', { value: true });
+    console.log('AAA ngrid.component ngAfterViewInit - emitEvent onInit');
+
     this._plugin.emitEvent({ source: 'grid', kind: 'onInit' });
 
     this._extApi.logicaps.pagination();
@@ -411,6 +413,8 @@ export class PblNgridComponent<T = any> implements AfterContentInit, AfterViewIn
     };
 
     let p: Promise<void>;
+    console.log('AAA ngrid.component ngOnDestroy - emitEvent onDestroy');
+
     this._plugin.emitEvent({ source: 'grid', kind: 'onDestroy', wait: (_p: Promise<void>) => p = _p });
     if (p) {
       p.then(destroy).catch(destroy);
@@ -614,6 +618,7 @@ export class PblNgridComponent<T = any> implements AfterContentInit, AfterViewIn
    * Invalidates the header, including a full rebuild of column headers
    */
   invalidateColumns(): void {
+    console.log('AAA ngrid.component invalidateColumns - emitEvent beforeInvalidateHeaders');
     this._plugin.emitEvent({ source: 'grid', kind: 'beforeInvalidateHeaders' });
 
     this._extApi.contextApi.clear();
@@ -634,6 +639,8 @@ export class PblNgridComponent<T = any> implements AfterContentInit, AfterViewIn
 
     // Each row will rebuild it's own cells.
     // This will be done in the RowsApi, which listens to `onInvalidateHeaders`
+    console.log('AAA ngridcomponent invalidateColumns - emitEvent onInvalidateHeaders');
+
     this._plugin.emitEvent({ source: 'grid', kind: 'onInvalidateHeaders' });
   }
 

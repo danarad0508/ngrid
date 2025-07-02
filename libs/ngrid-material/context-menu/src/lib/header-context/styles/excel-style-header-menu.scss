@@ -1,8 +1,23 @@
-.mat-menu-panel.pbl-mat-menu-panel {
+.mat-mdc-menu-panel.pbl-mat-menu-panel {
   max-width: 400px;
 }
 
-.mat-menu-item.pbl-mat-menu-row {
+/* TODO(mdc-migration): The following rule targets internal classes of menu that may no longer apply for the MDC version. */
+.mat-mdc-menu-item.pbl-mat-menu-row {
+  width: 100%;
+  box-sizing: border-box;
+  line-height: inherit;
+  height: auto;
+  margin: 6px 0;
+  cursor: inherit;
+
+  &:hover {
+    background: inherit;
+  }
+}
+
+/* Updated for MDC migration */
+.mdc-deprecated-list-item.pbl-mat-menu-row {
   width: 100%;
   box-sizing: border-box;
   line-height: inherit;

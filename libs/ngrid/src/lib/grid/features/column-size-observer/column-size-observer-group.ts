@@ -17,6 +17,7 @@ export class PblNgridColumnSizeObserverGroup {
   constructor(private extApi: PblNgridInternalExtensionApi) {
     this.entries = new WeakMap<any, PblColumnSizeObserver>();
     this.ro = new ResizeObserver( entries => {
+      console.log('AAA ResizeObserver', entries);
       requestAnimationFrame(() => this.onResize(entries) );
     });
   }

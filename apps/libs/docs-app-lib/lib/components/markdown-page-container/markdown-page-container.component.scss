@@ -17,8 +17,8 @@
   overflow: auto;
   position: sticky;
   top: 0;
-
-  mat-list-item {
+  /* TODO(mdc-migration): The following rule targets internal classes of list that may no longer apply for the MDC version. */
+  .mat-mdc-list-item {
     box-sizing: border-box;
     padding-left: 16px;
   }

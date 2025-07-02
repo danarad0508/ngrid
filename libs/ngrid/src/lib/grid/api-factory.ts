@@ -93,6 +93,7 @@ class InternalExtensionApi<T = any> implements PblNgridInternalExtensionApi<T> {
 
         tokens.ngZone.run( () => {
           this.rowsApi.syncRows('header');
+          console.log('AAA apifactory ctor - emitEvent onResizeRow');
           this.plugin.emitEvent({ source: 'grid', kind: 'onResizeRow' });
         });
       });

@@ -16,9 +16,9 @@
     transform: scale(0.8124576844955992, 0.8124576844955992);
     // WE REVERT THE MARGIN (-1.34375em) but because the inner "mat-form-field-wrapper" has a 0.25em margin already we compensate
     margin-bottom: -(1.34375em - 0.25em);
-
-     .mat-form-field-infix {
-       padding: 0.75em 0 0.75em 0;
-     }
+    /* Updated for MDC migration */
+    .mdc-text-field__input {
+      padding: 0.75em 0 0.75em 0;
+    }
   }
 }

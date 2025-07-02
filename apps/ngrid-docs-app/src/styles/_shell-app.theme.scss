@@ -27,17 +27,17 @@
     .pbl-bg-color-#{$key} { background-color: $color !important; }
   }
 
-  .mat-display-4, #{$typography-selector} .mat-display-4,
-  .mat-display-3, #{$typography-selector} .mat-display-3,
-  .mat-display-2, #{$typography-selector} .mat-display-2,
-  .mat-display-1, #{$typography-selector} .mat-display-1
+  .mat-headline-5-5-1, #{$typography-selector} .mat-headline-1,
+  .mat-headline-2, #{$typography-selector} .mat-headline-2,
+  .mat-headline-3, #{$typography-selector} .mat-headline-3,
+  .mat-headline-4, #{$typography-selector} .mat-headline-4
   .mat-h1, .mat-headline, #{$typography-selector} h1,
-  .mat-h2, .mat-title, #{$typography-selector} h2  {
+  .mat-h2, .mat-headline-6, #{$typography-selector} h2  {
     color: mat.get-color-from-palette($foreground, text-header);
   }
 
   .mat-body p,
-  .mat-body-1 p,
+  .mat-subtitle-2 p,
   .mat-typography p,
   input, li, ol, p, ul {
     letter-spacing: normal;
@@ -50,7 +50,7 @@
     background: color.scale(mat.get-color-from-palette($primary, default), $alpha: -10%);
   }
 
-  .mat-icon-button, .mat-menu-item {
+  .mat-mdc-icon-button, .mat-mdc-menu-item {
     .mat-icon.pbl-unicode {
       line-height: 150%;
       height: 100%;

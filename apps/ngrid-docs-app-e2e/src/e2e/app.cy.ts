@@ -2,7 +2,7 @@ describe('ngrid-docs-app', () => {
   beforeEach(() => cy.visit('/'));
 
   it('should display welcome message', () => {
-    cy.get('.mat-display-3').contains('nGrid');
+    cy.get('.mat-headline-2').contains('nGrid');
     cy.get('pbl-ngrid')
       .nGrid()
       .should((ngrid) => {

@@ -1,6 +1,7 @@
 <div fxLayout="row" fxLayoutGap="16px" style="padding: 8px">
   <button fxFlex="noshrink" mat-stroked-button color="accent" (click)="swapNameAndRating()">Swap Name <-> Rating</button>
-  <mat-slider thumbLabel tickInterval="1" min="250" max="500">
+  <!-- TODO: The 'tickInterval' property no longer exists -->
+  <mat-slider thumbLabel min="250" max="500"><input matSliderThumb />
     <input matSliderThumb [value]="emailWidth" (valueChange)="updateEmailWidth($event)">
     Email Width
   </mat-slider>
